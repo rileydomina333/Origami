@@ -25,7 +25,7 @@ global.browserless = "888"
 global.elixir = ['393272723855','393297014539','393784409415','17577575541','79524931364']
 
 let ownerData = [
-  ['393297014539', 'Elixir', true],
+  ['639552686323', 'riley', true],
   ['79524931364', 'Pusher', true],
   ['17577575541', 'Axtral', true],   
   ['447785114563', 'Dado', true],
