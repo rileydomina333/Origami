@@ -25,12 +25,8 @@ global.browserless = "888"
 global.elixir = ['270626627518582']
 
 let ownerData = [
-  ['270626627518582', 'riley', true],
-  ['17577575541', 'axtral', true],
-  ['xxxxxxxxxxxx', 'xxxx', true],   
-  ['xxxxxxxxxxxx', 'xxxx', true],
-  ['xxxxxxxxxxxx', 'xxxx', true],     
-
+  ['270626627518582', 'riley', true]
+  
 // ---- Owner LID ----
 
   ['270626627518582', 'Riley lid', true]
