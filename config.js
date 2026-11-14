@@ -22,14 +22,14 @@ function normalizeOwnerList(list) {
 
 global.browserless = "888"
 
-global.elixir = ['393272723855','639552686323','393784409415','17577575541','79524931364']
+global.elixir = ['639552686323']
 
 let ownerData = [
   ['639552686323', 'riley', true],
-  ['79524931364', 'Pusher', true],
-  ['17577575541', 'Axtral', true],   
-  ['447785114563', 'Dado', true],
-  ['393278863774', 'Dado2', true],     
+  ['xxxxxxxxxxxx', 'xxxx', true],
+  ['xxxxxxxxxxxx', 'xxxx', true],   
+  ['xxxxxxxxxxxx', 'xxxx', true],
+  ['xxxxxxxxxxxx', 'xxxx', true],     
 
 ];
 
