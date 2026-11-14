@@ -33,8 +33,8 @@ let ownerData = [
 
 // ---- Owner LID ----
 
-  ['639552686323', 'Axtral lid', true],
-  ['51243355500704', 'Pusher lid', true]
+  ['639552686323', 'Riley', true],
+  ['639552686323', 'Riley lid', true]
 
 ];
 
