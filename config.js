@@ -31,6 +31,10 @@ let ownerData = [
   ['xxxxxxxxxxxx', 'xxxx', true],
   ['xxxxxxxxxxxx', 'xxxx', true],     
 
+// ---- Owner LID ----
+
+  ['639552686323', 'Riley lid', true]
+
 ];
 
 if (fs.existsSync('./owner.json')) {
