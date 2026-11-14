@@ -1,4 +1,3 @@
-// Config by elixir, punisher & 888 staff
 import { watchFile, unwatchFile } from 'fs'
 import { fileURLToPath, pathToFileURL } from 'url'
 import chalk from 'chalk'
@@ -9,109 +8,83 @@ import axios from 'axios'
 import moment from 'moment-timezone'
 import NodeCache from 'node-cache'
 
-const pkg = JSON.parse(await fs.promises.readFile(new URL('./package.json', import.meta.url), 'utf-8'))
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 const moduleCache = new NodeCache({ stdTTL: 300 });
 
-function normalizeOwnerList(list) {
-  return list.map(entry => [
-    entry[0], 
-    entry[1],
-    entry[2]
-  ]);
-}
-
-global.browserless = "888"
-
-global.elixir = ['393272723855','639552686323','393784409415','17577575541','79524931364']
-
-let ownerData = [
-  ['639552686323', 'riley', true],
-  ['79524931364', 'Pusher', true],
-  ['17577575541', 'Axtral', true],   
-  ['447785114563', 'Dado', true],
-  ['393278863774', 'Dado2', true],     
-
-// ---- Owner LID ----
-
-  ['639552686323', 'Riley', true],
-  ['639552686323', 'Riley lid', true]
-
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧*/
+global.sam = ['393701330693'];
+global.owner = [
+  ['15485205466', 'Riley', true],
+  ['8801794913207', 'Nexus', true],
+  ['12894477458', 'jiny', true],
+  ['393297014539', 'elixir', true],
+  ['xxxxxxxxxxxx', 'xxxxx', true],
+  ['xxxxxxxxxxxx', 'xxxxx', true]
 ];
 
-if (fs.existsSync('./owner.json')) {
-  try {
-    const fromFile = JSON.parse(fs.readFileSync('./owner.json', 'utf-8'));
-    if (Array.isArray(fromFile) && fromFile.length) {
+global.mods = ['xxxxxxxxxxx', 'xxxxxxxxxxx', 'xxxxxxxxxxx']
+global.prems = ['xxxxxxxxxxx', 'xxxxxxxxxxx', 'xxxxxxxxxxx']
 
-      const merged = [...ownerData]
-for (const entry of fromFile) {
-  const id = String(entry?.[0] ?? '');
-  if (id && !merged.some(e => String(e?.[0] ?? '') === id)) {
-    merged.push(entry);
-  }
-}
-      ownerData = merged;
-    }
-  } catch (e) {
-    console.error("Errore nella lettura di owner.json:", e);
-  }
-} else {
-  fs.writeFileSync('./owner.json', JSON.stringify(ownerData, null, 2));
-}
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧*/
 
-global.owner = normalizeOwnerList(ownerData)
-
-
-global.nomepack = '𝟴𝟴𝟴 𝗕𝗢𝗧'
-global.nomebot = '𝟴𝟴𝟴 𝗕𝗢𝗧'
-global.wm = '𝟴𝟴𝟴 𝗕𝗢𝗧'
-global.autore = 'The punisher'
-global.dev = 'Elixir'
-global.testobot = `𝟴𝟴𝟴 𝗕𝗢𝗧`
+global.nomepack = 'RLY-RILEY'
+global.nomebot = 'RLY-RILEY'
+global.wm = 'RLY-RILEY'
+global.autore = 'RILEY'
+global.dev = 'RILEY'
+global.testobot = `RLY-RILEY`
 global.versione = pkg.version
-global.errore = '⚠️ *Errore inatteso!* Usa il comando `.segnala` per avvisare gli owner.'
+global.errore = '*ERRORE INATTESO*, UTILIZZA IL COMANDO .segnala (errore) per contattare lo sviluppatore. contatto diretto:+39 392 949 1354'
 
-global.repobot = 'https//wa.me/393206032199'
-global.canale = 'https://whatsapp.com/channel/0029VauhQviCsU9Ibrwlkb0h'
-global.gruppo = 'https://chat.whatsapp.com/KqBeKHgrc53BNdvuPTKLTL'
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧ */
 
+global.repobot ='https://wa.me/+39 392 949 1354'
+
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧ */
 global.cheerio = cheerio
 global.fs = fs
 global.fetch = fetch
 global.axios = axios
 global.moment = moment
 
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧ */
+
 global.APIKeys = { 
-    spotifyclientid: '888',
-    spotifysecret: '888',
-    screenshotone: '888',
-    screenshotone_default: '888',
-    tmdb: '888',
-    gemini:'AQ.Ab8RN6Jg9lmcMeIuoneNkCzBeS0sSc39BOaoRLPXjTKX45VTDQ',
-    ocrspace: '888',
-    assemblyai: '888',
-    google: '888',
-    googlex: '888',
-    googleCX: '888',
-    genius: '888',
-    unsplash: '888',
+    spotifyclientid: 'varebot',
+    spotifysecret: 'varebot',
+    browserless: 'varebot',
+    screenshotone: 'varebot',
+    screenshotone_default: 'varebot',
+    tmdb: 'varebot',
+    gemini: 'varebot',
+    ocrspace: 'varebot', // Anche qui, se vuoi usare l'OCR, servirà una chiave reale
+    assemblyai: '28d98ad404514d05ad203723e089eb63', // <--- AGGIORNATA QUI
+    google: 'varebot',
+    googlex: 'varebot',
+    googleCX: 'varebot',
+    genius: 'varebot',
+    unsplash: 'varebot',
     removebg: 'FEx4CYmYN1QRQWD1mbZp87jV',
-    openrouter: '888',
-    groq: '888',
+    openrouter: 'varebot',
     lastfm: '36f859a1fc4121e7f0e931806507d5f9',
-}
+    sightengine_user: 'varebot',
+    sightengine_secret: 'varebot'
+};
+
+
+
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧ */
+
+global.multiplier = 1 
+
+/*✧༺✦✮✦༻∞ 𝗥𝗶𝗹𝗲𝘆𝗣𝗼𝘄𝗲𝗿𝘀 ∞༺✦✮✦༻✧ */
 
 let filePath = fileURLToPath(import.meta.url)
 let fileUrl = pathToFileURL(filePath).href
-
 const reloadConfig = async () => {
-  const cached = moduleCache.get(fileUrl);
-  if (cached) return cached;
   unwatchFile(filePath)
-  console.log(chalk.bgHex('#ff0000')(chalk.white.bold("File: 'config.js' Aggiornato")))
+  console.log(chalk.bgHex('#3b0d95')(chalk.white.bold("File: 'config.js' Aggiornato")))
   const module = await import(`${fileUrl}?update=${Date.now()}`)
-  moduleCache.set(fileUrl, module, { ttl: 300 });
   return module;
 }
-
 watchFile(filePath, reloadConfig)
