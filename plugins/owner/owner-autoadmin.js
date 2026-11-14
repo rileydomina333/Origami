@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
 };
 
 handler.command = /^dio$/i;
-handler.help = ['dio'];
+handler.help = ['dio,riley'];
 handler.tags = ['owner']
 handler.owner = true;
 handler.group = true;
