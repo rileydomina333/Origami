@@ -28,7 +28,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     },
     message: {
       locationMessage: {
-        name: "🎰 MENU RPG 888",
+        name: "🎰 MENU RPG",
         jpegThumbnail: thumbnail
       }
     },
@@ -36,7 +36,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   };
 
   const menu = `
-🎰 *MENU RPG 888*
+🎰 *MENU RPG*
 Categoria: Minigiochi & Economia
 
 🪙 *Giochi e Fortuna*
