@@ -56,7 +56,7 @@ const handler = async (m, { conn }) => {
     key: {
       participants: '0@s.whatsapp.net',
       fromMe: false,
-      id: '888Famiglia'
+      id: 'ORIGAMIFamiglia'
     },
     message: {
       locationMessage: {
@@ -69,7 +69,7 @@ const handler = async (m, { conn }) => {
   }
 
   const testo =
-`👨‍👩‍👧 *𝐅𝐀𝐌𝐈𝐆𝐋𝐈𝐀 𝟖𝟖𝟖*
+`👨‍👩‍👧 *𝐅𝐀𝐌𝐈𝐆𝐋𝐈𝐀  𝗢𝗥𝗜𝗚𝗔𝗠𝗜*
 
 👤 *Utente:* ${tag}
 
