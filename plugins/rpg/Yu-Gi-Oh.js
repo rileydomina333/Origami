@@ -122,7 +122,7 @@ function buildCard(card, dataPesca = null) {
   }
 
   return `
-🎴 *YUGIOH CARD 888*
+🎴 *YUGIOH CARD ORIGAMI*
 ID: #${padId(card.id)}
 
 🃏 Nome: ${nome}
@@ -235,7 +235,7 @@ Usa *.pesca* per iniziare.
     })
 
     return m.reply(`
-🎴 *Collezione Yu‑Gi‑Oh 888*
+🎴 *Collezione Yu‑Gi‑Oh Origami*
 Carte totali: *${lista.length}*
 
 ${righe.join("\n")}
