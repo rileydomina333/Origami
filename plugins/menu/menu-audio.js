@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix: prefix }) => {
     },
     message: {
       locationMessage: {
-        name: "🎵 MENU AUDIO 888",
+        name: "🎵 MENU AUDIO",
         jpegThumbnail: thumbBuffer
       }
     },
@@ -41,7 +41,7 @@ let handler = async (m, { conn, usedPrefix: prefix }) => {
   }
 
   const menuText = `
-🎵 *MENU AUDIO 888*
+🎵 *MENU AUDIO*
 Modificatori vocali ed effetti
 
 🔍 *Download & Ricerca*
