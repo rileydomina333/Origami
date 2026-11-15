@@ -8,7 +8,7 @@ const PLUGINS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)))
 const pendingApprovals = {}
 const pendingRejection = {}
 
-const STAFF_GROUP = "120363403774208578@g.us" 
+const STAFF_GROUP = "" 
 
 const isDev = (jid) =>
   (global.db.data.pluginPerms?.[jid] ?? []).includes('developer')
