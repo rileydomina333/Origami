@@ -39,7 +39,7 @@ let handler = async (m, { conn, text, args, groupMetadata, isAdmin, isOwner }) =
   if (!args[0]) {
     return conn.sendMessage(m.chat, {
       text: `
-😴 *GESTIONE INATTIVI 888*
+😴 *GESTIONE INATTIVI ORIGAMI*
 
 Totale inattivi: *${total}/${member.length}*
 Non scrivono da più di *2 ore*.
