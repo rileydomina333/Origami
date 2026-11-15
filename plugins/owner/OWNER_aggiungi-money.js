@@ -19,9 +19,9 @@ const handler = async (m, { conn, text }) => {
 
   return conn.reply(
     m.chat,
-    `✅ Ho aggiunto *${numCoin} 888COIN* al ${account === 'bank' ? 'conto bancario' : 'portafoglio'} di @${mention.split('@')[0]}.
+    `✅ Ho aggiunto *${numCoin} COIN* al ${account === 'bank' ? 'conto bancario' : 'portafoglio'} di @${mention.split('@')[0]}.
 💳 Banca: *${Number(user.bank) || 0} 888COIN*
-💼 Portafoglio: *${Number(user.money) || 0} 888COIN*`,
+💼 Portafoglio: *${Number(user.money) || 0} COIN*`,
     m,
     { mentions: [mention] }
   )
