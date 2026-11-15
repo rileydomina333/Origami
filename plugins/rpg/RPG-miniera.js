@@ -14,17 +14,17 @@ let handler = async (m, { conn, args, command }) => {
 
     return conn.sendMessage(m.chat, {
       text: `
-💎 *MINIERA 888*
-💰 Portafoglio: *${money} 888COIN*
+💎 *MINIERA ORIGAMI*
+💰 Portafoglio: *${money} COIN*
 
 Scegli la puntata:
 `.trim(),
       buttons: [
-        { buttonId: bet(100),   buttonText: { displayText: "100 888COIN" }, type: 1 },
-        { buttonId: bet(200),   buttonText: { displayText: "200 888COIN" }, type: 1 },
-        { buttonId: bet(500),   buttonText: { displayText: "500 888COIN" }, type: 1 },
-        { buttonId: bet(1000),  buttonText: { displayText: "1000 888COIN" }, type: 1 },
-        { buttonId: bet(10000), buttonText: { displayText: "10000 888COIN" }, type: 1 }
+        { buttonId: bet(100),   buttonText: { displayText: "100 COIN" }, type: 1 },
+        { buttonId: bet(200),   buttonText: { displayText: "200 COIN" }, type: 1 },
+        { buttonId: bet(500),   buttonText: { displayText: "500 COIN" }, type: 1 },
+        { buttonId: bet(1000),  buttonText: { displayText: "1000 COIN" }, type: 1 },
+        { buttonId: bet(10000), buttonText: { displayText: "10000 COIN" }, type: 1 }
       ],
       headerType: 1
     }, { quoted: m })
@@ -36,8 +36,8 @@ Scegli la puntata:
   if (command === "minieraplay") {
 
     let bet = parseInt(args[0])
-    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 888COIN*")
-    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 COIN*")
+    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
     let grid = Array(9).fill("💎")
     let bombs = []
@@ -82,7 +82,7 @@ Scegli la puntata:
       return conn.sendMessage(m.chat, {
         text: `
 💣 *BOOM!*
-Hai perso *${game.bet} 888COIN*
+Hai perso *${game.bet} COIN*
 
 ${revealGrid(game)}
 `.trim(),
@@ -114,7 +114,7 @@ ${revealGrid(game)}
     return conn.sendMessage(m.chat, {
       text: `
 💰 *RITIRO COMPLETATO*
-Vincita: *${win} 888COIN*
+Vincita: *${win} COIN*
 `.trim(),
       buttons: [
         { buttonId: ".miniera", buttonText: { displayText: "🔁 Gioca di nuovo" }, type: 1 }
@@ -132,8 +132,8 @@ function sendGrid(conn, m, sender) {
   let game = global.miniera[sender]
 
   let text = `
-💎 *MINIERA 888*
-💰 Puntata: *${game.bet} 888COIN*
+💎 *MINIERA ORIGAMI*
+💰 Puntata: *${game.bet} COIN*
 📈 Moltiplicatore: *x${game.multiplier.toFixed(2)}*
 
 Scegli una casella:
