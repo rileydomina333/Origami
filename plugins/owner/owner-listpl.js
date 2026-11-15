@@ -27,10 +27,10 @@ let handler = async (m, { conn, usedPrefix, text, __dirname }) => {
   }
 
   const fake = {
-    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "888ListPlugins" },
+    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "ORIGAMIListPlugins" },
     message: {
       locationMessage: {
-        name: "🇰 SISTEMA 888",
+        name: "🇰 SISTEMA ORIGAMI",
         jpegThumbnail: await (await fetch("https://qu.ax/JKCXP.jpg")).buffer()
       }
     },
@@ -67,11 +67,11 @@ let handler = async (m, { conn, usedPrefix, text, __dirname }) => {
     }]
   });
 
-  const buttonParamsJson = JSON.stringify({ title: "🇰 PLUGIN MANAGER 888", sections });
+  const buttonParamsJson = JSON.stringify({ title: "🇰 PLUGIN MANAGER ORIGAMI", sections });
 
   await conn.sendMessage(m.chat, {
-    text: "🇰 *PLUGIN MANAGER 888*\n\n📊 " + folders.length + " cartelle • " + Object.keys(allPlugins).length + " plugin totali\n\nSeleziona una cartella dal menu:",
-    footer: "888 Bot • Gestione Plugins",
+    text: "🇰 *PLUGIN MANAGER ORIGAMI*\n\n📊 " + folders.length + " cartelle • " + Object.keys(allPlugins).length + " plugin totali\n\nSeleziona una cartella dal menu:",
+    footer: "ORIGAMI Bot • Gestione Plugins",
     headerType: 1,
     interactiveButtons: [{ name: "single_select", buttonParamsJson }]
   }, { quoted: fake });
@@ -98,10 +98,10 @@ function getPluginsInFolder(folderPath) {
 
 async function showFilteredList(m, conn, usedPrefix, filter, filterLower, entries) {
   const fake = {
-    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "888ListPluginsFiltered" },
+    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "ORIGAMIListPluginsFiltered" },
     message: {
       locationMessage: {
-        name: "🇰 SISTEMA 888",
+        name: "🇰 SISTEMA ORIGAMI",
         jpegThumbnail: await (await fetch("https://qu.ax/JKCXP.jpg")).buffer()
       }
     },
@@ -145,7 +145,7 @@ async function showFilteredList(m, conn, usedPrefix, filter, filterLower, entrie
   };
   const bold = str => str.split('').map(c => BOLD_MAP[c] || c).join('');
 
-  let out = "🇰 *PLUGIN MANAGER 888*\n📂 " + title + "\n📊 Trovati: " + filtered.length + "\n🟢 Attivi: " + attivi.length + "\n🔴 Disabilitati: " + disabilitati.length + "\n\n";
+  let out = "🇰 *PLUGIN MANAGER ORIGAMI*\n📂 " + title + "\n📊 Trovati: " + filtered.length + "\n🟢 Attivi: " + attivi.length + "\n🔴 Disabilitati: " + disabilitati.length + "\n\n";
 
   if (attivi.length) {
     out += "🟢 *Attivi:*\n";
