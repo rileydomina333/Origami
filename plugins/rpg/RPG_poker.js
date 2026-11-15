@@ -56,13 +56,13 @@ let handler = async (m, { conn, text }) => {
   if (!puntata || puntata <= 0) {
     return conn.sendMessage(m.chat, {
       text: `
-♠️ *POKER 888*
+♠️ *POKER ORIGAMI*
 
 🎴 Poker a 5 carte  
 Vinci in base alla mano!
 
-💰 Puntata minima: *10 888COIN*  
-💼 Saldo: *${user.money || 0} 888COIN*
+💰 Puntata minima: *10 COIN*  
+💼 Saldo: *${user.money || 0} COIN*
 
 📊 Pagamenti:
 1️⃣ Coppia → x1  
@@ -85,8 +85,8 @@ Vinci in base alla mano!
     }, { quoted: m })
   }
 
-  if (puntata < 10) return m.reply("❌ Puntata minima: *10 888COIN*")
-  if (user.money < puntata) return m.reply(`❌ Non hai abbastanza soldi! Hai *${user.money} 888COIN*`)
+  if (puntata < 10) return m.reply("❌ Puntata minima: *10 COIN*")
+  if (user.money < puntata) return m.reply(`❌ Non hai abbastanza soldi! Hai *${user.money} COIN*`)
 
   const mazzo = mescola(creaMazzo())
   const mano = mazzo.slice(0, 5)
@@ -98,25 +98,25 @@ Vinci in base alla mano!
 
   if (mult === 0) {
     user.money -= puntata
-    esito = `💀 Hai perso *${puntata} 888COIN*`
+    esito = `💀 Hai perso *${puntata} COIN*`
   } else {
     vincita = Math.floor(puntata * mult)
     user.money += vincita
-    esito = `🏆 Hai vinto *${vincita} 888COIN*`
+    esito = `🏆 Hai vinto *${vincita} COIN*`
   }
 
   await conn.sendMessage(m.chat, {
     text: `
-♠️ *POKER 888*
+♠️ *POKER ORIGAMI*
 
 🎴 Le tue carte:
 ${carteStr}
 
 🏅 ${nome}
-💵 Puntata: *${puntata} 888COIN*
+💵 Puntata: *${puntata} COIN*
 ${esito}
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim(),
     buttons: [
       { buttonId: `.poker ${puntata}`, buttonText: { displayText: "🔄 Gioca ancora" }, type: 1 },
