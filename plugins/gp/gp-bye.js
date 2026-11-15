@@ -93,7 +93,7 @@ export async function before(m, { conn }) {
         caption = bold(caption).replaceAll(NAME, () => groupMetadata.subject)
 
         const quoted = {
-          key: { participants: '0@s.whatsapp.net', fromMe: false, id: '888Bye' },
+          key: { participants: '0@s.whatsapp.net', fromMe: false, id: 'ORIGAMIBye' },
           message: {
             locationMessage: {
               name: 'Addio 👋',
