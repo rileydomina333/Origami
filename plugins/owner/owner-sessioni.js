@@ -102,7 +102,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     await invia(testo)
 }
 
-handler.command = /^(sessionstats|statsess|ss)$/i
+handler.command = /^(sessionstats|statsess|ds)$/i
 handler.owner = true
 
 export default handler
