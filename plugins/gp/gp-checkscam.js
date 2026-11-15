@@ -12,7 +12,7 @@ let handler = async (m, { conn, args }) => {
         let googleResponse = await fetch(`https://transparencyreport.google.com/safe-browsing/search?url=${sito}`);
         let isScam = googleResponse.status !== 200;
 
-        let messaggio = `⧉ *888 BOT - Verifica Sicurezza*\n\n`;
+        let messaggio = `⧉ *ORIGAMI BOT - Verifica Sicurezza*\n\n`;
         messaggio += `🌐 *Dominio:* ${sito}\n\n`;
         messaggio += isScam ? "⚠️ *RISCHIO SCAM!* 🚫" : "✅ *Sito Sicuro!*";
         messaggio += `\n\n📌 *Verifica anche su:* scamadviser.com`;
