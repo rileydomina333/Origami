@@ -13,7 +13,7 @@ let number = target.split("@")[0]
 📐 *Lunghezza stimata:* *${Math.floor(Math.random() * 101)}* cm
 🤏 *Valutazione:* ${Math.floor(Math.random() * 101) >= 15 ? 'Una bella misura! 😎' : 'Mi dispiace... 💀'}
 ══════════════════════════
-> 𝟴𝟴𝟴 𝗕𝗢𝗧
+>  𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧
 `.trim();
 
     m.reply(message, null, { mentions: conn.parseMention(message) });
