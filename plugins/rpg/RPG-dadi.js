@@ -2,24 +2,24 @@ let handler = async (m, { conn, args }) => {
   let bet = parseInt(args[0])
   let user = global.db.data.users[m.sender]
 
-  if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+  if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
   let u = Math.floor(Math.random() * 6) + 1
   let b = Math.floor(Math.random() * 6) + 1
 
   let text
 
-  // 🏆 VITTORIA — 888
+  // 🏆 VITTORIA — ORIGAMI
   if (u > b) {
     user.money += bet
     text = `
-🎲 *DADI 888*
+🎲 *DADI ORIGAMI*
 Tu: ${u} | Bot: ${b}
 
 🏆 Vittoria  
-+${bet} 888COIN
++${bet} COIN
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
@@ -27,25 +27,25 @@ Tu: ${u} | Bot: ${b}
   else if (u < b) {
     user.money -= bet
     text = `
-🎲 *DADI 888*
+🎲 *DADI ORIGAMI*
 Tu: ${u} | Bot: ${b}
 
 💀 Sconfitta  
--${bet} 888COIN
+-${bet} COIN
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
   // 😐 PAREGGIO — 888
   else {
     text = `
-🎲 *DADI 888*
+🎲 *DADI ORIGAMI*
 Tu: ${u} | Bot: ${b}
 
 😐 Pareggio
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
