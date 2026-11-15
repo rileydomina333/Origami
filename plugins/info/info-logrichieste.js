@@ -61,8 +61,8 @@ const attachListener = () => {
 
                         const testo =
                             totale === 1
-                                ? `🟦 *LOG RICHIESTE — 888*\n\n👤 *Admin:* @${adminNumero}\n📥 Ha accettato *1 richiesta*.\n\n🔧 Per disattivare: *.disattiva logrichieste*`
-                                : `🟦 *LOG RICHIESTE — 888*\n\n👤 *Admin:* @${adminNumero}\n📥 Ha accettato *${totale} richieste*.\n\n🔧 Per disattivare: *.disattiva logrichieste*`
+                                ? `🟦 *LOG RICHIESTE — ORIGAMI*\n\n👤 *Admin:* @${adminNumero}\n📥 Ha accettato *1 richiesta*.\n\n🔧 Per disattivare: *.disattiva logrichieste*`
+                                : `🟦 *LOG RICHIESTE — ORIGAMI*\n\n👤 *Admin:* @${adminNumero}\n📥 Ha accettato *${totale} richieste*.\n\n🔧 Per disattivare: *.disattiva logrichieste*`
 
                         await conn.sendMessage(chatId, {
                             text: testo,
