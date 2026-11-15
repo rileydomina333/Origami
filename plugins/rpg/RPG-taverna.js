@@ -57,7 +57,7 @@ let handler = async (m, { conn, text, args, command, usedPrefix }) => {
                 m.chat,
                 {
                     text: `🗡️ *BENVENUTO NELL'AVVENTURA!* 🛡️\n\nScegli la tua classe per iniziare:`,
-                    footer: '𝟴𝟴𝟴 𝗕𝗢𝗧',
+                    footer: ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧',
                     buttons: [
                         {
                             buttonId: `${usedPrefix}${command} guerriero`,
