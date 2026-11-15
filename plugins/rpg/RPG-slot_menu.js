@@ -5,8 +5,8 @@ let handler = async (m, { conn }) => {
   const bet = (x) => money >= x ? `.slotplay ${x}` : `no_${x}`
 
   const text = `
-🎰 *SLOT 888*
-💰 Portafoglio: *${money} 888COIN*
+🎰 *ORIGAMI SLOT*
+💰 Portafoglio: *${money} COIN*
 
 Scegli l'importo da puntare:
 `.trim()
@@ -14,11 +14,11 @@ Scegli l'importo da puntare:
   await conn.sendMessage(m.chat, {
     text,
     buttons: [
-      { buttonId: bet(100), buttonText: { displayText: "100 888COIN" }, type: 1 },
-      { buttonId: bet(200), buttonText: { displayText: "200 888COIN" }, type: 1 },
-      { buttonId: bet(500), buttonText: { displayText: "500 888COIN" }, type: 1 },
-      { buttonId: bet(1000), buttonText: { displayText: "1000 888COIN" }, type: 1 },
-      { buttonId: bet(10000), buttonText: { displayText: "10000 888COIN" }, type: 1 }
+      { buttonId: bet(100), buttonText: { displayText: "100 COIN" }, type: 1 },
+      { buttonId: bet(200), buttonText: { displayText: "200 COIN" }, type: 1 },
+      { buttonId: bet(500), buttonText: { displayText: "500 COIN" }, type: 1 },
+      { buttonId: bet(1000), buttonText: { displayText: "1000 COIN" }, type: 1 },
+      { buttonId: bet(10000), buttonText: { displayText: "10000 COIN" }, type: 1 }
     ],
     headerType: 1
   }, { quoted: m })
