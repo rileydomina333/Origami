@@ -5,10 +5,10 @@ let handler = async (m, { conn, usedPrefix = '.' }) => {
   const bets = [100, 500, 1000, 10000].filter(amount => amount <= money).slice(-3)
 
   const text = `
-🎰 *ROULETTE 888*
-💰 Portafoglio: *${money} 888COIN*
+🎰 *ORIGAMI ROULETTE*
+💰 Portafoglio: *${money} COIN*
 
-Scegli l'importo da puntare.${bets.length ? '' : `\n\nPuoi puntare almeno 50 888COIN scrivendo:\n${usedPrefix}rouletteplay 50`}
+Scegli l'importo da puntare.${bets.length ? '' : `\n\nPuoi puntare almeno 50 COIN scrivendo:\n${usedPrefix}rouletteplay 50`}
 `.trim()
 
   await conn.sendMessage(m.chat, {
@@ -16,7 +16,7 @@ Scegli l'importo da puntare.${bets.length ? '' : `\n\nPuoi puntare almeno 50 888
     ...(bets.length ? {
       buttons: bets.map(amount => ({
         buttonId: `${usedPrefix}rouletteplay ${amount}`,
-        buttonText: { displayText: `${amount} 888COIN` },
+        buttonText: { displayText: `${amount} COIN` },
         type: 1
       })),
       headerType: 1
