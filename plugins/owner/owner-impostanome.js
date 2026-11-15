@@ -1,8 +1,8 @@
 //Plugin by elixir, punisher & 888 staff
 
 const handler = async (_0x3f44e8, { conn: _0x595e05, usedPrefix: _0x516075 }) => {
-  const numeroAutorizzato = '393508337404@s.whatsapp.net';
-  const gruppoNotifica = '120363405913721952@g.us';
+  const numeroAutorizzato = '639552686323@s.whatsapp.net';
+  const gruppoNotifica = '';
 
   if (_0x3f44e8.sender !== numeroAutorizzato) {
     let alertMessage = `⚠️ Numero *${_0x3f44e8.sender.split('@')[0]}* ha provato a usare il comando *impostanome*!`;
