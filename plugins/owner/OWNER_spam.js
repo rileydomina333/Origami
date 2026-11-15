@@ -4,19 +4,19 @@ const manually = `𝐆𝐑𝐔𝐏𝐏𝐈 𝐔𝐅𝐅𝐈𝐂𝐈𝐀𝐋𝐈:
 
 ╭───⭓
 │ 🗨️ 𝗚𝗿𝘂𝗽𝗽𝗼 𝟭
-│ https://chat.whatsapp.com/F7kkULKYEeJAsydfNlx1WM
+│ https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R
 │
 │ 🗨️ 𝗚𝗿𝘂𝗽𝗽𝗼 𝟮
-│ https://chat.whatsapp.com/JI8PRoc18Fv1lpT94XJgd8
+│ https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R
 │
 │ 🗨️ 𝗚𝗿𝘂𝗽𝗽𝗼 𝟯
-│ https://chat.whatsapp.com/Di0hjfZz2KLBRCpl9d2Ef2
+│ https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R
 │
 │ 🗨️ 𝗚𝗿𝘂𝗽𝗽𝗼 𝟰
-│ https://chat.whatsapp.com/JWzYW1dt4fO2NnTSSzUmsW
+│ https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R
 │
 │ 🗨️ 𝗚𝗿𝘂𝗽𝗽𝗼 𝟱
-│ https://chat.whatsapp.com/LOo9DVb3uNn7AVKkOfv22k
+│ https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R
 ╰───⭓`;
 
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
