@@ -35,7 +35,7 @@ const handler = async (m, { conn, text, args, usedPrefix, isAdmin, isOwner, isRO
 
   if (!sub || sub === 'help' || sub === 'aiuto') {
     return m.reply(
-`🎫 *TICKET 888*
+`🎫 *TICKET ORIGAMI*
 
 Apri un ticket di supporto nel gruppo.
 
