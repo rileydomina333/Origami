@@ -40,10 +40,10 @@ let handler = async (m, { conn, command }) => {
     return conn.reply(
       m.chat,
       `
-🎡 *RUOTA DELLA FORTUNA 888*
+🎡 *RUOTA DELLA FORTUNA ORIGAMI*
 
 La ruota ha *18 spicchi*:
-• 10 vincenti (max: 100.000 888COIN)
+• 10 vincenti (max: 100.000 COIN)
 • 8 perdenti (max: perdita totale)
 
 Vuoi tentare la fortuna?
@@ -87,26 +87,26 @@ Rispondi:
     user.ruotaCount += 1
 
     const premi = [
-      { name: "*100 888COIN*", amount: 100, weight: 20 },
-      { name: "*200 888COIN*", amount: 200, weight: 15 },
-      { name: "*300 888COIN*", amount: 300, weight: 10 },
-      { name: "*400 888COIN*", amount: 400, weight: 8 },
-      { name: "*500 888COIN*", amount: 500, weight: 5 },
-      { name: "*1000 888COIN*", amount: 1000, weight: 4 },
+      { name: "*100 COIN*", amount: 100, weight: 20 },
+      { name: "*200 COIN*", amount: 200, weight: 15 },
+      { name: "*300 COIN*", amount: 300, weight: 10 },
+      { name: "*400 COIN*", amount: 400, weight: 8 },
+      { name: "*500 COIN*", amount: 500, weight: 5 },
+      { name: "*1000 COIN*", amount: 1000, weight: 4 },
       { name: "*Raddoppia*", amount: "double", weight: 3 },
-      { name: "*5000 888COIN*", amount: 5000, weight: 2 },
-      { name: "*10.000 888COIN*", amount: 10000, weight: 1 },
-      { name: "*100.000 888COIN*", amount: 100000, weight: 0.5 }
+      { name: "*5000 COIN*", amount: 5000, weight: 2 },
+      { name: "*10.000 COIN*", amount: 10000, weight: 1 },
+      { name: "*100.000 COIN*", amount: 100000, weight: 0.5 }
     ]
 
     const perdite = [
-      { name: "*-100 888COIN*", amount: -100, weight: 20 },
-      { name: "*-200 888COIN*", amount: -200, weight: 15 },
-      { name: "*-300 888COIN*", amount: -300, weight: 10 },
-      { name: "*-400 888COIN*", amount: -400, weight: 8 },
-      { name: "*-500 888COIN*", amount: -500, weight: 5 },
-      { name: "*-1000 888COIN*", amount: -1000, weight: 4 },
-      { name: "*-10.000 888COIN*", amount: -10000, weight: 2 },
+      { name: "*-100 COIN*", amount: -100, weight: 20 },
+      { name: "*-200 COIN*", amount: -200, weight: 15 },
+      { name: "*-300 COIN*", amount: -300, weight: 10 },
+      { name: "*-400 COIN*", amount: -400, weight: 8 },
+      { name: "*-500 COIN*", amount: -500, weight: 5 },
+      { name: "*-1000 COIN*", amount: -1000, weight: 4 },
+      { name: "*-10.000 COIN*", amount: -10000, weight: 2 },
       { name: "*PERDI TUTTO*", amount: "all", weight: 1 }
     ]
 
@@ -130,7 +130,7 @@ Rispondi:
 
     for (let f of frames) {
       await new Promise(r => setTimeout(r, 3000))
-      await conn.reply(m.chat, f + "\n888 BOT", m)
+      await conn.reply(m.chat, f + "\nORIGAMI BOT", m)
     }
 
     let lista = Math.random() < 0.5 ? premi : perdite
@@ -149,7 +149,7 @@ Rispondi:
 Hai vinto: ${risultato.name}
 
 💰 Saldo bancario attuale:
-*${user.bank} 888COIN*
+*${user.bank} COIN*
 
 Fortunato!
 `.trim()
@@ -158,7 +158,7 @@ Fortunato!
 Hai perso: ${risultato.name}
 
 💰 Saldo bancario attuale:
-*${user.bank} 888COIN*
+*${user.bank} COIN*
 
 Ritenta, sarai più fortunato!
 `.trim()
