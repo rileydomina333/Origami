@@ -20,7 +20,7 @@ Non ci sono abbastanza partecipanti nel gruppo per creare una coppia.`
         } while (b === a);
 
         m.reply(
-`❤️ *Coppia trovata 888*
+`❤️ *Coppia trovata Origami*
 ━━━━━━━━━━━━━━━━━━━━━━
 ${toM(a)} e ${toM(b)}
 ora risultano *fidanzati*.
