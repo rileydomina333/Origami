@@ -133,8 +133,8 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
           if (!jid) continue
           if (!usersDb[jid]) usersDb[jid] = {}
           usersDb[jid].money = (usersDb[jid].money || 0) + 1000
-          usersDb[jid]['888coin'] = (usersDb[jid]['888coin'] || 0) + 1000
-          prizesTextLocal += `\n- *@${cleanJid(jid)}* — +1000 888COIN`
+          usersDb[jid]['coin'] = (usersDb[jid]['coin'] || 0) + 1000
+          prizesTextLocal += `\n- *@${cleanJid(jid)}* — +1000 COIN`
         }
         prizesText = prizesTextLocal || '\nNessun premio'
         cs.awardedDate = todayDate()
@@ -182,7 +182,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
     const day = global.dailyStats.date || todayDate()
 
     const out =
-`*888Statistiche Giornaliere*\n
+`*ORIGAMIStatistiche Giornaliere*\n
 🏷️ *Gruppo:* ${groupName}
 📅 *Data:* ${day}\n
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -195,7 +195,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
 📌 *Posizione del gruppo:*
 ${positionText}\n
 🕛 Reset automatico alle *00:00* (ora italiana)
-*Sistema 888*`
+*Sistema ORIGAMI*`
 
     const mentions = top3.map(r=> r[0]).filter(Boolean)
     await conn.sendMessage(chat, { text: out, mentions })
