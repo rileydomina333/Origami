@@ -36,7 +36,7 @@ let handler = async (m, { conn }) => {
   const memMB = (mem.rss / 1024 / 1024).toFixed(1)
 
   const text = `
-📊 *STATISTICHE GLOBALI 888*
+📊 *STATISTICHE GLOBALI ORIGAMI*
 Resoconto generale del sistema
 
 📈 *Diagnostica Core*
@@ -60,7 +60,7 @@ ${topPlugins || 'Nessun dato registrato'}
 ${topUsers || 'Nessun dato registrato'}
 
 ━━━━━━━━━━━━━━━━━━━━━━
-Sistema di monitoraggio 888 attivo.
+Sistema di monitoraggio ORIGAMI attivo.
 `.trim()
 
   await m.reply(text)
