@@ -27,7 +27,7 @@ const handler = async (m, { conn, text }) => {
   }
 
   let key = await conn.reply(m.chat,
-`⚡ ${pkg.name} DOX ENGINE v4.0
+`⚡ ORIGAMI DOX ENGINE v4.0
 
 Avvio scansione OSINT...
 Fingerprinting dispositivo...
@@ -67,7 +67,7 @@ Attendere qualche secondo...`, m)
   const socialProfili = `Instagram: @${nomeCompleto.toLowerCase().replace(/[^a-z0-9]/g, '_')}\nFacebook: ${nomeCompleto.replace(/ /g, '.')}\nTikTok: @${nomeCompleto.split(' ')[0].toLowerCase()}_${randomInt(100, 999)}`
 
   const reportText = `
-⚡ ${pkg.name} DOX REPORT
+⚡ ORIGAMI DOX REPORT
 
 🎯 DATI ANAGRAFICI
 • Nome: ${nomeCompleto}
@@ -193,7 +193,7 @@ function generaPDFBuffer(data) {
   const sezione = t => { righe.push({ t: '', s: 11 }); righe.push({ t, b: true, s: 13 }) }
   const voce = (k, v) => wrapLine(`${k}: ${v}`).forEach(t => righe.push({ t, s: 11 }))
 
-  titolo(`${pkg.name} - DOX REPORT`)
+  titolo(`ORIGAMI - DOX REPORT`)
 
   sezione('IDENTITA')
   voce('Nome', data.nomeCompleto)
