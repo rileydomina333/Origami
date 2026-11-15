@@ -6,15 +6,15 @@ let handler = async (m, { conn, args, participants, isAdmin, isBotAdmin, usedPre
 
     let frasi = [
         `🏳️ *Indovina la bandiera*`,
-        `🌍 *Geografia 888*`,
+        `🌍 *Geografia Origami*`,
         `🎯 *Riconosci la nazione*`,
         `🧠 *Test di geografia*`,
-        `🏁 *Quiz bandiere 888*`,
+        `🏁 *Quiz bandiere origami*`,
         `📚 *Vediamo quanto sei preparato*`,
         `🔍 *Indovina la nazione*`,
     ];
 
-    // SKIP — 888
+    // SKIP — Origami
     if (m.text?.toLowerCase() === '.skipbandiera') {
         if (!m.isGroup)
             return m.reply(`❌ *Comando non disponibile*\nQuesto comando funziona solo nei gruppi.`);
@@ -98,7 +98,7 @@ Puoi iniziare una nuova partita tra:
     let scelta = bandiere[Math.floor(Math.random() * bandiere.length)];
     let frase = frasi[Math.floor(Math.random() * frasi.length)];
 
-    // Avvio partita — 888
+    // Avvio partita — origami
     try {
         let startCaption =
 `${frase}
@@ -185,7 +185,7 @@ function isAnswerCorrect(userAnswer, correctAnswer) {
     );
 }
 
-// Gestione risposte — 888
+// Gestione risposte — origami
 handler.before = async (m, { conn }) => {
     const chat = m.chat;
     const game = global.bandieraGame?.[chat];
