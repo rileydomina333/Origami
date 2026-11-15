@@ -27,7 +27,7 @@ handler.before = async function (m, { conn, participants, isBotAdmin }) {
 
   if ([28, 29, 30].includes(m.messageStubType) && target === botJid) {
     await conn.sendMessage(m.chat, {
-      text: `🛡️ *PROTEZIONE BOT ATTIVA*\n━━━━━━━━━━━━━━━━━━━━\n⚠️ Tentativo di modificare i permessi del bot rilevato.\n❌ Azione bloccata.\n━━━━━━━━━━━━━━━━━━━━\n🔐 *888 SECURITY SYSTEM*`
+      text: `🛡️ *PROTEZIONE BOT ATTIVA*\n━━━━━━━━━━━━━━━━━━━━\n⚠️ ORIGAMI HA MESSO IL PRESERVATIVO.\n❌ Azione bloccata.\n━━━━━━━━━━━━━━━━━━━━\n🔐 *ORIGAMI SECURITY SYSTEM*`
     });
     return;
   }
@@ -73,17 +73,17 @@ handler.before = async function (m, { conn, participants, isBotAdmin }) {
   }
 
   const action = STUB_TYPES[m.messageStubType] || 'ATTIVITÀ SOSPETTA';
-  const message = `⚠️ *ATTIVITÀ SOSPETTA RILEVATA*\n━━━━━━━━━━━━━━━━━━━━\n👤 *Autore:* @${sender.split('@')[0]}\n🚫 *Azione:* ${action}\n⚡ *Stato:* INTERVENTO IMMEDIATO\n━━━━━━━━━━━━━━━━━━━━\n📉 Admin colpevole degradato\n🔒 Gruppo impostato in sola lettura\n🔁 Eventuali promozioni annullate\n━━━━━━━━━━━━━━━━━━━━\n🔐 *888 SECURITY SYSTEM*`;
+  const message = `⚠️ *ATTIVITÀ SOSPETTA RILEVATA*\n━━━━━━━━━━━━━━━━━━━━\n👤 *Autore:* @${sender.split('@')[0]}\n🚫 *Azione:* ${action}\n⚡ *Stato:* INTERVENTO IMMEDIATO\n━━━━━━━━━━━━━━━━━━━━\n📉 Admin colpevole degradato\n🔒 Gruppo impostato in sola lettura\n🔁 Eventuali promozioni annullate\n━━━━━━━━━━━━━━━━━━━━\n🔐 *ORIGAMI SECURITY SYSTEM*`;
 
   await conn.sendMessage(m.chat, {
     text: message,
     contextInfo: {
       mentionedJid: [sender, ...botOwners].filter(Boolean),
       externalAdReply: {
-        title: '🛡️ 888 ANTINUKE',
+        title: '🛡️ ORIGAMI ANTINUKE',
         body: 'Protocollo di Emergenza Attivo',
         thumbnailUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Portrait_Placeholder.png/240px-Portrait_Placeholder.png',
-        sourceUrl: '888_ANTINUKE',
+        sourceUrl: 'ORIGAMI_ANTINUKE',
         mediaType: 1,
         renderLargerThumbnail: true
       }
