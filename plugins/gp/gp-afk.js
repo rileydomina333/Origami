@@ -45,8 +45,8 @@ Scegli dove attivare la modalità:
 📍 *Questo gruppo*
 🌍 *Tutti i gruppi*
 
-888 • AFK Module`,
-      footer: '888',
+Origami • AFK Module`,
+      footer: 'Origami',
       buttons: [
         { buttonId: '.afk_scope group', buttonText: { displayText: '📍 Su questo gruppo' }, type: 1 },
         { buttonId: '.afk_scope all', buttonText: { displayText: '🌍 Su tutti i gruppi' }, type: 1 }
@@ -77,7 +77,7 @@ Scegli dove attivare la modalità:
 🔕 Non verrai incluso negli hidetag.
 😴 Buon riposo ${formatMention(m.sender)}.
 
-888 • AFK Engine`,
+Origami • AFK Engine`,
       mentions: [m.sender]
     }, { quoted: m })
   }
@@ -105,7 +105,7 @@ handler.before = async (m, { conn }) => {
 
 Spero tu abbia ricaricato le energie ⚡
 
-888 • AFK Recovery`,
+Origami • AFK Recovery`,
       mentions: [m.sender]
     }, { quoted: m }).catch(() => {})
     return false
