@@ -35,7 +35,7 @@ ${usedPrefix + command} <nome canzone>`
     // MENU — SOLO PULSANTI
     if (!isDownloadCommand) {
       const infoMsg = `
-─── 𝟴𝟴𝟴 𝗣𝗟𝗔𝗬𝗘𝗥 ───
+─── 𝗥𝗟𝗬 𝗣𝗟𝗔𝗬𝗘𝗥 ───
 
 🎵 *Titolo:* ${vid.title}
 ⏱️ *Durata:* ${vid.timestamp}
@@ -52,7 +52,7 @@ ${usedPrefix + command} <nome canzone>`
       const buttonMessage = {
         image: { url: vid.thumbnail },
         caption: infoMsg,
-        footer: '𝟴𝟴𝟴 𝗕𝗢𝗧 • Downloader',
+        footer: '𝗥𝗟𝗬 𝗕𝗢𝗧 • Downloader',
         buttons: buttons,
         headerType: 4
       }
@@ -111,7 +111,7 @@ ${usedPrefix + command} <nome canzone>`
         {
           video: fs.readFileSync(outputPath),
           mimetype: "video/mp4",
-          caption: `✨ *Completato da 𝟴𝟴𝟴 𝗕𝗢𝗧*`
+          caption: `✨ *Completato da 𝗥𝗟𝗬 𝗕𝗢𝗧*`
         },
         { quoted: m }
       )
