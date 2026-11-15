@@ -48,11 +48,11 @@ async function renderCardJimp({ userName, bank, wallet, stolen, cardNumber, iban
   const n = (v) => Number(v || 0).toLocaleString('it-IT')
   bg.print(white, 560, 220, String(userName).slice(0, 24))
   bg.print(gold, 620, 320, 'IN BANCA')
-  bg.print(white16, 620, 350, '888COIN ' + n(bank))
+  bg.print(white16, 620, 350, 'COIN ' + n(bank))
   bg.print(gold, 620, 400, 'PORTAFOGLIO')
-  bg.print(white16, 620, 430, '888COIN ' + n(wallet))
+  bg.print(white16, 620, 430, 'COIN ' + n(wallet))
   bg.print(gold, 620, 480, 'TOTALE RUBATO')
-  bg.print(white16, 620, 510, '888COIN ' + n(stolen))
+  bg.print(white16, 620, 510, 'COIN ' + n(stolen))
   bg.print(white, 400, 780, String(cardNumber))
   bg.print(white16, 400, 825, String(iban))
   return bg.getBufferAsync(Jimp.MIME_JPEG)
@@ -149,10 +149,10 @@ const handler = async (m, { conn, args }) => {
 `💳 *PORTAFOGLIO*
 
 👤 @${who.split('@')[0]}
-🏦 Banca: ${bank} 888COIN
-👛 Tasca: ${money} 888COIN
-💰 Totale: ${total.toLocaleString('it-IT')} 888COIN
-🥷 Rubato: ${stolen} 888COIN
+🏦 Banca: ${bank} COIN
+👛 Tasca: ${money} COIN
+💰 Totale: ${total.toLocaleString('it-IT')} COIN
+🥷 Rubato: ${stolen} COIN
 💳 Carta: ${user.card}
 🏦 IBAN: ${iban}`,
       m
@@ -176,7 +176,7 @@ const handler = async (m, { conn, args }) => {
       {
         image: imgBuffer,
         mimetype: 'image/jpeg',
-        caption: `💳 *${global?.nomebot || '888.BOT'}* — @${who.split('@')[0]}\n💰 Totale: ${total.toLocaleString('it-IT')} 888COIN`,
+        caption: `💳 *${global?.nomebot || 'ORIGAMI.BOT'}* — @${who.split('@')[0]}\n💰 Totale: ${total.toLocaleString('it-IT')} COIN`,
         mentions: [who]
       },
       { quoted: m }
