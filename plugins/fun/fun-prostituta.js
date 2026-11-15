@@ -55,8 +55,8 @@ Riprova tra *${minutes}m ${seconds}s*`,
 👤 ${userTag}
 ${ev.testo}
 
-💰 Guadagno: +${amount} 888COIN
-💵 Totale: ${user.money} 888COIN`
+💰 Guadagno: +${amount} COIN
+💵 Totale: ${user.money} COIN`
     } else {
 
         user.money -= amount
@@ -68,8 +68,8 @@ ${ev.testo}
 👤 ${userTag}
 ${ev.testo}
 
-💸 Perdita: -${amount} 888COIN
-💵 Totale: ${user.money} 888COIN`
+💸 Perdita: -${amount} COIN
+💵 Totale: ${user.money} COIN`
     }
 
     conn.reply(m.chat, text, m, {
