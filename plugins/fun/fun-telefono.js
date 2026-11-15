@@ -112,7 +112,7 @@ Inserisci un modello reale.`
 📊 *Valutazione*
 ➜ ${voto}/10
 
-> 𝟴𝟴𝟴 𝗕𝗢𝗧`
+>  𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧`
 
   m.reply(risposta.trim())
 }
