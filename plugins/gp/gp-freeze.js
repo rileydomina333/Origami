@@ -15,7 +15,7 @@ let handler = async (m, { conn, isAdmin, isBotAdmin, usedPrefix }) => {
   ]
 
   const testo = 
-`🚨 *FREEZE 888 BOT*
+`🚨 *FREEZE ORIGAMI BOT*
 
 Scegli per quanto tempo bloccare il gruppo.
 Durante il freeze solo gli admin potranno scrivere.
