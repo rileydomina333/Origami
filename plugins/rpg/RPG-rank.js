@@ -43,7 +43,7 @@ ${bar} ${percent}%
 
 📈 *XP mancanti:* ${missing}
 🏅 *Ruolo:* ${user.role}
-💰 *Soldi:* ${user.money} 888COIN
+💰 *Soldi:* ${user.money} COIN
 `
 
   await conn.sendMessage(
