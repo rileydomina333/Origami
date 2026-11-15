@@ -68,7 +68,7 @@ const langMap = {
 
 let handler = async (m, { conn, args }) => {
   if (!args.length) {
-    let tutorial = `🌍 *TRADUCI 888*\n📌 Uso: *.traduci <testo> <lingua>*\nEsempio: *.traduci ciao giapponese*\n\n🌐 *Lingue disponibili:*\n\n`;
+    let tutorial = `🌍 *TRADUCI ORIGAMI*\n📌 Uso: *.traduci <testo> <lingua>*\nEsempio: *.traduci ciao giapponese*\n\n🌐 *Lingue disponibili:*\n\n`;
     for (const [nome, codice] of Object.entries(langMap)) {
       tutorial += `🔹 ${nome} → \`${codice}\`\n`;
     }
@@ -112,7 +112,7 @@ let handler = async (m, { conn, args }) => {
 
     return conn.reply(
       m.chat,
-      `🌍 *TRADUZIONE 888*\n📝 Originale: ${text}\n🌐 Lingua: ${langInput} (${targetLang})\n\n🔹 Risultato: ${translatedText}`,
+      `🌍 *TRADUZIONE ORIGAMI*\n📝 Originale: ${text}\n🌐 Lingua: ${langInput} (${targetLang})\n\n🔹 Risultato: ${translatedText}`,
       m
     );
   } catch (error) {
