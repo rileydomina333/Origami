@@ -19,7 +19,7 @@ const handler = async (m, { conn, args }) => {
 
   let bet = parseInt(args[0])
   if (!bet || bet < 50)
-    return m.reply("💸 Puntata minima: *50 888COIN*\nUso: *.duello (soldi) @user*")
+    return m.reply("💸 Puntata minima: *50 COIN*\nUso: *.duello (soldi) @user*")
 
   if (user1.money < bet) return m.reply("💸 Non hai abbastanza soldi.")
   if (user2.money < bet) return m.reply("💸 L'altro utente non ha abbastanza soldi.")
@@ -32,13 +32,13 @@ const handler = async (m, { conn, args }) => {
   // ───────────────────────────────
   await conn.sendMessage(m.chat, {
     text: `
-⚔️ *DUELLO 888 IN ARRIVO*
+⚔️ *DUELLO ORIGAMI IN ARRIVO*
 
 👤 @${sender.split('@')[0]}
    ⚔️ VS ⚔️
 🎯 @${target.split('@')[0]}
 
-💰 Puntata: *${bet} 888COIN*
+💰 Puntata: *${bet} COIN*
 
 ⚡ Scrivi *accetto* per combattere  
 ⏳ Tempo: 30 secondi
@@ -77,7 +77,7 @@ const handler = async (m, { conn, args }) => {
 
     return conn.sendMessage(m.chat, {
       text: `
-⌛ *DUELLO ANNULLATO 888*
+⌛ *DUELLO ANNULLATO ORIGAMI*
 
 @${target.split('@')[0]} non ha accettato.
 
@@ -130,7 +130,7 @@ const handler = async (m, { conn, args }) => {
 
   await conn.sendMessage(m.chat, {
     text: `
-🏆 *DUELLO 888 TERMINATO*
+🏆 *DUELLO ORIGAMI TERMINATO*
 
 🥇 Vincitore:
 ➤ @${winner.split('@')[0]}
@@ -139,7 +139,7 @@ const handler = async (m, { conn, args }) => {
 ➤ @${loser.split('@')[0]}
 
 💰 Guadagno:
-+${bet} 888COIN
++${bet} COIN
 
 🔥 Che fight.
 `.trim(),
