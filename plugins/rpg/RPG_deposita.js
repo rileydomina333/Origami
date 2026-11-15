@@ -26,10 +26,10 @@ let handler = async (m, { conn, command, text }) => {
     `
 🏦 *Deposito completato*
 
-Hai depositato *${deposito} 888COIN* nel tuo conto bancario.
+Hai depositato *${deposito} COIN* nel tuo conto bancario.
 
-💳 Banca: *${users[who].bank} 888COIN*
-💼 Portafoglio: *${users[who].money} 888COIN*
+💳 Banca: *${users[who].bank} COIN*
+💼 Portafoglio: *${users[who].money} COIN*
 `.trim(),
     m
   )
