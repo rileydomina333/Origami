@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix: prefix }) => {
     },
     message: {
       locationMessage: {
-        name: "🔐 MENU OWNER 888",
+        name: "🔐 MENU OWNER",
         jpegThumbnail: thumbBuffer
       }
     },
@@ -41,7 +41,7 @@ let handler = async (m, { conn, usedPrefix: prefix }) => {
   }
 
   const menuText = `
-🔐 *MENU OWNER 888*
+🔐 *MENU OWNER ORIGAMI*
 Livello: Sviluppatore / Creatore Core
 
 ⚙️ *Gestione Bot & Credenziali*
