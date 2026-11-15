@@ -15,17 +15,17 @@ let handler = async (m, { conn, args, command }) => {
 
     return conn.sendMessage(m.chat, {
       text: `
-🐎 *CAVALLI 888*
-💰 Portafoglio: *${money} 888COIN*
+🐎 *CAVALLI ORIGAMI*
+💰 Portafoglio: *${money} COIN*
 
 Scegli la puntata:
 `.trim(),
       buttons: [
-        { buttonId: bet(100),   buttonText: { displayText: "100 888COIN" }, type: 1 },
-        { buttonId: bet(200),   buttonText: { displayText: "200 888COIN" }, type: 1 },
-        { buttonId: bet(500),   buttonText: { displayText: "500 888COIN" }, type: 1 },
-        { buttonId: bet(1000),  buttonText: { displayText: "1000 888COIN" }, type: 1 },
-        { buttonId: bet(10000), buttonText: { displayText: "10000 888COIN" }, type: 1 }
+        { buttonId: bet(100),   buttonText: { displayText: "100 COIN" }, type: 1 },
+        { buttonId: bet(200),   buttonText: { displayText: "200 COIN" }, type: 1 },
+        { buttonId: bet(500),   buttonText: { displayText: "500 COIN" }, type: 1 },
+        { buttonId: bet(1000),  buttonText: { displayText: "1000 COIN" }, type: 1 },
+        { buttonId: bet(10000), buttonText: { displayText: "10000 COIN" }, type: 1 }
       ],
       headerType: 1
     }, { quoted: m })
@@ -37,25 +37,25 @@ Scegli la puntata:
   if (command === "cavalliplay") {
     let bet = parseInt(args[0])
 
-    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 888COIN*")
-    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 COIN*")
+    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
     global.cavalli[m.sender] = { bet }
 
     return conn.sendMessage(m.chat, {
       text: `
-🐎 *CAVALLI 888*
+🐎 *CAVALLI ORIGAMI*
 🎯 Scegli il cavallo
-💰 Puntata: *${bet} 888COIN*
+💰 Puntata: *${bet} COIN*
 
 1️⃣ Jonny  
 2️⃣ Dav  
 3️⃣ Franco
 `.trim(),
       buttons: [
-        { buttonId: ".cavallo 1", buttonText: { displayText: "🐎 Jonny" }, type: 1 },
-        { buttonId: ".cavallo 2", buttonText: { displayText: "🐎 Dav" }, type: 1 },
-        { buttonId: ".cavallo 3", buttonText: { displayText: "🐎 Franco" }, type: 1 }
+        { buttonId: ".cavallo 1", buttonText: { displayText: "🐎 Riley" }, type: 1 },
+        { buttonId: ".cavallo 2", buttonText: { displayText: "🐎 Gasto" }, type: 1 },
+        { buttonId: ".cavallo 3", buttonText: { displayText: "🐎 Joe" }, type: 1 }
       ],
       headerType: 1
     }, { quoted: m })
@@ -80,20 +80,20 @@ Scegli la puntata:
     if (scelta === vincitore) {
       user.money += game.bet * 2
       text = `
-🐎 *CAVALLI 888*
+🐎 *CAVALLI ORIGAMI*
 🏆 Vincitore: *${nomeVincitore}*
-💰 Guadagno: +${game.bet * 2} 888COIN
+💰 Guadagno: +${game.bet * 2} COIN
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
     } else {
       user.money -= game.bet
       text = `
-🐎 *CAVALLI 888*
+🐎 *CAVALLI ORIGAMI*
 🏆 Vincitore: *${nomeVincitore}*
-💀 Perso: -${game.bet} 888COIN
+💀 Perso: -${game.bet} COIN
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
     }
 
