@@ -8,9 +8,9 @@ import ai from '../../lib/ai.js'
 const MAX_TOKENS = 2200
 const TEMP = 0.25
 
-const SYSTEM = "Sei un sviluppatore JavaScript esperto.\nRicevi una descrizione in italiano e devi generare UN SOLO file di plugin per un bot WhatsApp basato su Baileys.\n\nREQUISITI OBBLIGATORI:\n1. Rispondi ESCLUSIVAMENTE con codice JavaScript valido, senza testo introduttivo e senza spiegazioni.\n2. NON usare blocchi markdown. Solo codice puro.\n3. Inizia SEMPRE con: // Plugin by elixir\n4. Usa import ESM, mai require.\n5. La struttura minima e OBBLIGATORIA e:\n\n// Plugin by elixir\nimport fetch from 'node-fetch'\n\nlet handler = async (m, { conn, text }) => {\n    if (!text) return m.reply('Scrivi qualcosa.')\n    return m.reply('Hai scritto: ' + text)\n}\n\nhandler.help = ['eco <testo>']\nhandler.tags = ['fun']\nhandler.command = /^(eco)$/i\n\nexport default handler\n\n6. handler.command puo essere stringa, array di stringhe o RegExp.\n7. Per i gruppi aggiungi handler.group = true.\n8. Per comandi admin aggiungi handler.admin = true.\n9. Rispondi con m.reply(testo).\n10. Massimo 150 righe. Sii conciso ma funzionante.\n11. Librerie disponibili: jimp, node-fetch, axios, moment-timezone, libphonenumber-js, uuid, jsqr, canvas."
+const SYSTEM = "Sei un sviluppatore JavaScript esperto.\nRicevi una descrizione in italiano e devi generare UN SOLO file di plugin per un bot WhatsApp basato su Baileys.\n\nREQUISITI OBBLIGATORI:\n1. Rispondi ESCLUSIVAMENTE con codice JavaScript valido, senza testo introduttivo e senza spiegazioni.\n2. NON usare blocchi markdown. Solo codice puro.\n3. Inizia SEMPRE con: // Plugin by Riley\n4. Usa import ESM, mai require.\n5. La struttura minima e OBBLIGATORIA e:\n\n// Plugin by elixir\nimport fetch from 'node-fetch'\n\nlet handler = async (m, { conn, text }) => {\n    if (!text) return m.reply('Scrivi qualcosa.')\n    return m.reply('Hai scritto: ' + text)\n}\n\nhandler.help = ['eco <testo>']\nhandler.tags = ['fun']\nhandler.command = /^(eco)$/i\n\nexport default handler\n\n6. handler.command puo essere stringa, array di stringhe o RegExp.\n7. Per i gruppi aggiungi handler.group = true.\n8. Per comandi admin aggiungi handler.admin = true.\n9. Rispondi con m.reply(testo).\n10. Massimo 150 righe. Sii conciso ma funzionante.\n11. Librerie disponibili: jimp, node-fetch, axios, moment-timezone, libphonenumber-js, uuid, jsqr, canvas."
 
-const RULES = "RICORDA: solo codice, niente markdown, niente spiegazioni.\nIl file deve iniziare con: // Plugin by elixir\nIl file deve terminare con: export default handler"
+const RULES = "RICORDA: solo codice, niente markdown, niente spiegazioni.\nIl file deve iniziare con: // Plugin by Riley\nIl file deve terminare con: export default handler"
 
 const BT = String.fromCharCode(96)
 const NL = String.fromCharCode(10)
@@ -37,8 +37,8 @@ const extractCode = (raw) => {
   const exp = text.lastIndexOf('export default')
   let out = exp >= 0 ? text.slice(0, text.indexOf(NL, exp) + 1 || text.length) : text
   out = out.slice(start)
-  if (!out.trim().startsWith('// Plugin by elixir')) {
-    out = '// Plugin by elixir' + NL + out
+  if (!out.trim().startsWith('// Plugin by riley')) {
+    out = '// Plugin by riley' + NL + out
   }
   return out.replace(/\s+$/, '') + NL
 }
@@ -89,7 +89,7 @@ const handler = async (m, { conn, text, usedPrefix }) => {
 
   if (!prompt) {
     return m.reply([
-      'CREAPLUGIN 888',
+      'CREAPLUGIN ORIGAMI',
       '',
       'Descrivi cosa deve fare il plugin e te lo mando qui come file .js.',
       '',
