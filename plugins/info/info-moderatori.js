@@ -105,7 +105,7 @@ export async function buildModsPanel({
     return resolved ? mentionLabel(resolved) : '@utente'
   }
 
-  let text = `🛡️ *PANNELLO MODERATORI 888*\n`
+  let text = `🛡️ *PANNELLO MODERATORI ORIGAMI*\n`
   text += `🏠 *Gruppo:* ${subject}\n`
   text += `👥 *Membri:* ${list.length || '—'}\n`
   text += `━━━━━━━━━━━━━━━━━━━━━━\n`
@@ -142,7 +142,7 @@ export async function buildModsPanel({
   text += `• 🚫 ${p}banuser @utente [durata] — blocca l’uso del bot, mod: solo temporaneo max ${LIMITS.MOD_BAN_MAX_MS / 60000} min\n`
   text += `• 🔓 ${p}unbanuser @utente — riattiva l’utente, mod: solo ban temporanei, permanenti solo Admin-Owner\n`
   text += `• 👻 ${p}hidetag testo — tag invisibile a tutti, salta gli AFK, mod: max ${LIMITS.MOD_HIDETAG_MAX} menzioni\n`
-  text += `• 🚨 ${p}denuncia @utente motivo — invia segnalazione con gruppo data e motivo allo staff 888\n`
+  text += `• 🚨 ${p}denuncia @utente motivo — invia segnalazione con gruppo data e motivo allo staff origami\n`
   text += `• 📊 ${p}modstats — tue statistiche warn mute ban denunce, report staff completo per Admin-Owner\n`
   text += `• 🧹 ${p}modsreset — azzera tutti i moderatori del gruppo (solo Admin/Owner)\n`
   text += `• 📋 ${p}warnlist — mostra solo gli utenti con almeno 1 warn\n`
@@ -162,7 +162,7 @@ export async function buildModsPanel({
   return {
     text,
     mentions,
-    footer: '𝟴𝟴𝟴 BOT • Moderazione',
+    footer: ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧 • Moderazione',
     interactiveButtons
   }
 }
