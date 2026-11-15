@@ -42,7 +42,7 @@ let handler = async (m, { conn, usedPrefix: prefix }) => {
   }
 
   const menuText = `
-🎮 *MENU GIOCHI 888*
+🎮 *MENU GIOCHI*
 Intrattenimento & Funzioni Community
 
 ♟️ *Giochi da Tavolo*
