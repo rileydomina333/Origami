@@ -12,10 +12,10 @@ let handler = async (m, { conn, command, text }) => {
     return m.reply("❌ Devi inserire un numero valido.")
 
   if (deposito < 0)
-    return m.reply(`❌ Non puoi depositare *${deposito} 888COIN*.`)
+    return m.reply(`❌ Non puoi depositare *${deposito} COIN*.`)
 
   if (deposito > users[who].money)
-    return m.reply(`❌ Non hai abbastanza soldi nel portafoglio.\n💼 Hai *${users[who].money} 888COIN*`)
+    return m.reply(`❌ Non hai abbastanza soldi nel portafoglio.\n💼 Hai *${users[who].money} COIN*`)
 
   users[who].bank += deposito
   users[who].money -= deposito
