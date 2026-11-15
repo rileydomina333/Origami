@@ -2,7 +2,7 @@
 
 const handler = async (m, { conn, usedPrefix: prefix }) => {
   const menuText = `
-👑 *MENU ADMIN 888*
+👑 *MENU ADMIN ORIGAMI*
 Privilegi Amministratore
 
 👥 *Gestione Utenti*
