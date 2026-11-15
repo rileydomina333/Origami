@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MENU_SECTIONS = [
   {
     title: 'MENU PRINCIPALE',
-    video: 'menu-funzioni.mp4',
+    video: 'file_00000000b91881f49cf027960acd8a28.gif',
     image: 'settings.png',
     rows: [
       { title: '⚙️ 𝐅𝐮𝐧𝐳𝐢𝐨𝐧𝐢', command: 'funzioni' },
@@ -17,7 +17,7 @@ const MENU_SECTIONS = [
   },
   {
     title: 'GIOCHI, RPG E AUDIO',
-    video: 'menu-giochi.mp4',
+    video: 'file_00000000b91881f49cf027960acd8a28.gif',
     image: 'pokemon_battle.png',
     rows: [
       { title: '🎮 𝐆𝐢𝐨𝐜𝐡𝐢', command: 'giochi' },
@@ -27,7 +27,7 @@ const MENU_SECTIONS = [
   },
   {
     title: 'STATS E OWNER',
-    video: 'menu-stats.mp4',
+    video: 'file_00000000b91881f49cf027960acd8a28.gif',
     image: 'admin.png',
     rows: [
       { title: '📊 𝐒𝐭𝐚𝐭𝐬', command: 'modstats' },
