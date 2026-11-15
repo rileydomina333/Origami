@@ -111,7 +111,7 @@ const handler = async (m) => {
     ? `\n\n\u{1F4CB} ...e altre ${issues.filter(i => i.level !== 'ok').length - 40}`
     : ''
 
-  const text = `🔍 *AUDIT 888*
+  const text = `🔍 *AUDIT ORIGAMI*
 
 \u{1F4CB} Plugin analizzati: *${total}*
 \u{1F534} Problemi gravi: *${errors.length}*
@@ -123,7 +123,7 @@ ${lines.join('\n')}${extra}
 _\u{1F3AF} Obiettivo: zero \u{1F534} e pochi \u{1F7E1}._`
 
   if (!lines.length) {
-    return m.reply(`✅ *AUDIT 888*\n\n\u{1F4CB} Plugin analizzati: *${total}*\n\u{1F7E2} Nessun problema rilevato.`)
+    return m.reply(`✅ *AUDIT ORIGAMI*\n\n\u{1F4CB} Plugin analizzati: *${total}*\n\u{1F7E2} Nessun problema rilevato.`)
   }
 
   return m.reply(text)
