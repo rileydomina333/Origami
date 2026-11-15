@@ -8,12 +8,12 @@ const handler = async (m, { conn }) => {
   };
 
   const msg = await conn.sendMessage(m.chat, {
-    text: `⏳ *SISTEMA SCANSIONE 888*\nAvvio diagnostica...\n\n${progress(5)}`
+    text: `⏳ *SISTEMA SCANSIONE ORIGAMI*\nAvvio diagnostica...\n\n${progress(5)}`
   }, { quoted: m });
 
   const update = async (percent, text) => {
     await conn.sendMessage(m.chat, {
-      text: `⏳ *SISTEMA SCANSIONE 888*\n${text}\n\n${progress(percent)}`,
+      text: `⏳ *SISTEMA SCANSIONE ORIGAMI*\n${text}\n\n${progress(percent)}`,
       edit: msg.key
     });
   };
