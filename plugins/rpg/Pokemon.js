@@ -89,7 +89,7 @@ function buildCard(poke,dataC=null){
   const dataRiga=dataC?`\n📅 Catturato il: ${dataC}`:""
 
   return `
-🎴 *POKÉDEX CARD 888*
+🎴 *POKÉDEX CARD ORIGAMI*
 🆔 #${padId(poke.id)} — *${poke.nameIT}*
 🔥 Tipo: ${tipoStr}
 ⭐ Rarità: ${rarita.stars} ${rarita.label}
@@ -120,7 +120,7 @@ let handler=async(m,{conn,args,command})=>{
     if(rimanente>0){
       const minuti=Math.ceil(rimanente/60000)
       return m.reply(`
-⏳ *COOLDOWN 888*
+⏳ *COOLDOWN ORIGAMI*
 Attendi ancora *${minuti} minuto${minuti>1?'i':''}* prima di catturare un altro Pokémon.
 `.trim())
     }
@@ -165,7 +165,7 @@ Attendi ancora *${minuti} minuto${minuti>1?'i':''}* prima di catturare un altro 
 
     if(!lista.length){
       return m.reply(`
-📭 *POKÉDEX VUOTO 888*
+📭 *POKÉDEX VUOTO ORIGAMI*
 Non hai ancora catturato nessun Pokémon.
 Usa *.cattura* per iniziare.
 `.trim())
@@ -180,7 +180,7 @@ Usa *.cattura* per iniziare.
     })
 
     return m.reply(`
-📖 *IL TUO POKÉDEX 888*
+📖 *IL TUO POKÉDEX ORIGAMI*
 Totale: ${lista.length}/${TOTAL_POKEMON}
 
 ${righe.join("\n")}
@@ -191,7 +191,7 @@ ${righe.join("\n")}
   if(command==='pokemon'){
     if(!args[0]){
       return m.reply(`
-📖 *USO COMANDO 888*
+📖 *USO COMANDO ORIGAMI*
 .pokemon <nome/id>
 Puoi vedere solo Pokémon già catturati.
 `.trim())
@@ -204,7 +204,7 @@ Puoi vedere solo Pokémon già catturati.
 
     if(!trovato){
       return m.reply(`
-❌ *NON TROVATO 888*
+❌ *NON TROVATO ORIGAMI*
 Non hai ancora catturato *${query.toUpperCase()}*.
 Usa *.cattura* per trovarlo.
 `.trim())
