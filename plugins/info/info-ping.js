@@ -23,44 +23,9 @@ let baileysCache = { value: null, at: 0 }
 const BAILEYS_TTL_MS = 6 * 60 * 60 * 1000
 
 let handler = async (m, { conn, usedPrefix }) => {
-  // NOME FISSO - niente più global.nomebot
   const nomeBot = 'ORIGAMI BOT'
   const versioneBot = global.versione || 'N/D'
 
-  // --- CONTROLLO PAGAMENTO ---
-  // Se l'utente non è premium, non calcola il ping e manda il messaggio a pagamento
-  const user = global.db.data.users[m.sender]
-  const isPremium = user?.premium === true || m.isOwner
-
-  if (!isPremium) {
-    const prezzo = '1€'
-    const textPay = `
-⚡ *PING ${nomeBot}*
-━━━━━━━━━━━━━━
-🔒 *COMANDO A PAGAMENTO*
-
-Per usare il ping devi attivare l'abbonamento premium.
-
-💰 *Prezzo:* ${prezzo} / mese
-📩 *Per pagare:* Contatta il proprietario del bot
-✅ Dopo il pagamento avrai accesso a tutti i comandi premium.
-
-*${nomeBot}*
-`.trim()
-
-    const buttonsPay = [
-      { buttonId: `${usedPrefix}premium`, buttonText: { displayText: '💰 Attiva Premium' }, type: 1 },
-      { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📋 Menu' }, type: 1 }
-    ]
-
-    return await conn.sendMessage(
-      m.chat,
-      { text: textPay, footer: nomeBot, buttons: buttonsPay, headerType: 1 },
-      { quoted: m }
-    )
-  }
-
-  // --- SE HA PAGATO, CALCOLA IL PING ---
   const nowB = Date.now()
   if (!baileysCache.value || nowB - baileysCache.at > BAILEYS_TTL_MS) {
     try {
@@ -83,26 +48,56 @@ Per usare il ping devi attivare l'abbonamento premium.
 🏷️ Versione: *${versioneBot}*
 🔧 Baileys: *v${baileys}*
 🤖 RAM Bot: *${formatBytes(process.memoryUsage().rss)}*
-💎 Stato: *Premium Attivo*
 `.trim()
 
-  const buttons = [
-    { buttonId: `${usedPrefix}ping`, buttonText: { displayText: '🔄 Ricalcola' }, type: 1 },
-    { buttonId: `${usedPrefix}status`, buttonText: { displayText: '⚙️ Stato' }, type: 1 },
-    { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📋 Menu' }, type: 1 }
-  ]
+  // --- MESSAGGIO A PAGAMENTO (non eliminabile) ---
+  // Non è un pagamento vero, amount 0. Serve solo a usare il tipo
+  // "requestPaymentMessage" che WhatsApp non permette di eliminare.
+  // Visibile a tutti, nessuno deve pagare niente.
+  try {
+    const paymentMessage = {
+      requestPaymentMessage: {
+        currencyCodeIso4217: 'EUR',
+        amount1000: 0, // 0 = nessun addebito
+        requestFrom: m.sender,
+        noteMessage: {
+          extendedTextMessage: {
+            text: text,
+            contextInfo: {
+              mentionedJid: [m.sender],
+              forwardingScore: 0,
+              isForwarded: false
+            }
+          }
+        },
+        expiryTimestamp: 0
+      }
+    }
 
-  await conn.sendMessage(
-    m.chat,
-    { text, footer: nomeBot, buttons, headerType: 1 },
-    { quoted: m }
-  )
+    await conn.relayMessage(m.chat, paymentMessage, { messageId: m.key.id })
+
+    // Bottoni separati, perché il messaggio di pagamento non supporta i bottoni
+    // Li mandiamo subito dopo come messaggio normale
+    await conn.sendMessage(m.chat, {
+      text: `Scegli un'azione per *${nomeBot}*:`,
+      footer: nomeBot,
+      buttons: [
+        { buttonId: `${usedPrefix}ping`, buttonText: { displayText: '🔄 Ricalcola' }, type: 1 },
+        { buttonId: `${usedPrefix}status`, buttonText: { displayText: '⚙️ Stato' }, type: 1 },
+        { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📋 Menu' }, type: 1 }
+      ],
+      headerType: 1
+    }, { quoted: m })
+
+  } catch (e) {
+    // Fallback se la versione di Baileys non supporta il payment
+    console.log('Payment fallito, mando normale:', e)
+    await conn.sendMessage(m.chat, { text, footer: nomeBot }, { quoted: m })
+  }
 }
 
 handler.help = ['ping']
 handler.tags = ['info']
 handler.command = /^(ping)$/i
-// Rende il comando solo per chi ha pagato
-handler.premium = true
 
 export default handler
