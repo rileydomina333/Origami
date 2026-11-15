@@ -40,7 +40,7 @@ Non puoi rubare a te stesso.
   if (senderTotalFunds < 1000)
     throw `
 🏦 *Fondi insufficienti*
-Ti servono almeno *1000 888COIN* tra banca e portafoglio per tentare un furto.
+Ti servono almeno *1000 COIN* tra banca e portafoglio per tentare un furto.
 `.trim()
 
   const payFine = (amount) => {
@@ -58,8 +58,8 @@ Ti servono almeno *1000 888COIN* tra banca e portafoglio per tentare un furto.
 
   const formatFineSource = ({ usedBank, usedMoney }) => {
     const parts = []
-    if (usedBank > 0) parts.push(`*${usedBank} 888COIN* dalla banca`)
-    if (usedMoney > 0) parts.push(`*${usedMoney} 888COIN* dal portafoglio`)
+    if (usedBank > 0) parts.push(`*${usedBank} COIN* dalla banca`)
+    if (usedMoney > 0) parts.push(`*${usedMoney} COIN* dal portafoglio`)
     return parts.join(' e ')
   }
 
@@ -68,7 +68,7 @@ Ti servono almeno *1000 888COIN* tra banca e portafoglio per tentare un furto.
     let multa = Math.floor(Math.random() * 60) + 40
     const paid = payFine(multa)
     uSender.warn = (uSender.warn || 0) + 1
-    const sourceText = formatFineSource(paid) || '*0 888COIN*'
+    const sourceText = formatFineSource(paid) || '*0 COIN*'
 
     return conn.reply(
       m.chat,
@@ -76,7 +76,7 @@ Ti servono almeno *1000 888COIN* tra banca e portafoglio per tentare un furto.
 🚨 *Rapina fallita*
 @${who.split('@')[0]} non ha soldi.
 
-Multa: *${multa} 888COIN*
+Multa: *${multa} COIN*
 Pagata con: ${sourceText}
 `.trim(),
       null,
@@ -100,7 +100,7 @@ Pagata con: ${sourceText}
 🚨 *Sei stato scoperto!*
 La polizia ti ha fermato.
 
-Multa: *${multa} 888COIN*
+Multa: *${multa} COIN*
 Pagata con: ${sourceText}
 `.trim()
   }
@@ -125,10 +125,10 @@ Pagata con: ${sourceText}
 
     testo = `
 💰 *Rapina riuscita*
-Hai rubato *${rubato} 888COIN* (${percentuale}%)
+Hai rubato *${rubato} COIN* (${percentuale}%)
 A: @${who.split('@')[0]}
 
-Ottimo colpo, soldato 888.
+Ottimo colpo, soldato origami.
 `.trim()
   }
 
