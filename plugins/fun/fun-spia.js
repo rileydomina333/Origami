@@ -53,7 +53,7 @@ let handler = async (m, { conn, participants }) => {
 🔥 *Livello Tossicita:* ${tossicita}%
 📝 *Verdetto Staff:* ${verdetto}
 ━━━━━━━━━━━━━━━━━━
-📂 REPORT AGENTI 888 Staff`
+📂 REPORT AGENTI Staff`
 
     await conn.sendMessage(m.chat, { text: report }, { quoted: m })
 }
