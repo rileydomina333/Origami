@@ -150,7 +150,7 @@ let handler = async (m, { conn, command, text }) => {
 
     for (let u of clan.members)
       if (getMoney(u) < WAR_COST)
-        return m.reply("Ogni membro deve avere almeno 200 888COIN.");
+        return m.reply("Ogni membro deve avere almeno 200 COIN.");
 
     clan.members.forEach(u => payAmount(u, WAR_COST));
 
@@ -170,7 +170,7 @@ let handler = async (m, { conn, command, text }) => {
       user.lastWar = now;
 
       return m.reply(
-        `🏆 *Guerra vinta!*\n\n• +500 888COIN a testa\n• -200 888COIN al clan avversario\n• Reputazione +1`
+        `🏆 *Guerra vinta!*\n\n• +500 COIN a testa\n• -200 COIN al clan avversario\n• Reputazione +1`
       );
     } else {
       clan.members.forEach(u => payAmount(u, LOSE_PENALTY));
@@ -180,7 +180,7 @@ let handler = async (m, { conn, command, text }) => {
       user.lastWar = now;
 
       return m.reply(
-        `❌ *Guerra persa*\n\n• -200 888COIN al clan attaccante\n• +200 888COIN al clan vincente\n• Reputazione nemica +1`
+        `❌ *Guerra persa*\n\n• -200 COIN al clan attaccante\n• +200 COIN al clan vincente\n• Reputazione nemica +1`
       );
     }
   }
