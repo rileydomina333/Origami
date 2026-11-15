@@ -2,8 +2,8 @@ let handler = async (m, { conn, args }) => {
   let bet = parseInt(args[0])
   let user = global.db.data.users[m.sender]
 
-  if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 888COIN*")
-  if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+  if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 COIN*")
+  if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
   const symbols = ["🍒", "🍋", "💎", "7️⃣"]
   const spin = () => symbols[Math.floor(Math.random() * symbols.length)]
@@ -16,13 +16,13 @@ let handler = async (m, { conn, args }) => {
   if (a === b && b === c) {
     user.money += bet * 2
     text = `
-🎰 *SLOT 888*
+🎰 *SLOT ORIGAMI*
 ${a} ${b} ${c}
 
 💎 *JACKPOT!*
-Guadagni: *+${bet * 2} 888COIN*
+Guadagni: *+${bet * 2} COIN*
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
@@ -32,13 +32,13 @@ Guadagni: *+${bet * 2} 888COIN*
     if (user.money < 0) user.money = 0
 
     text = `
-🎰 *SLOT 888*
+🎰 *SLOT ORIGAMI*
 ${a} ${b} ${c}
 
 💀 Hai perso:
-*-${bet} 888COIN*
+*-${bet} COIN*
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
