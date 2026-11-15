@@ -32,7 +32,7 @@ _Il file viene salvato in data/state.json._`
 
   if (!all.length) {
     return m.reply(
-`🚌 *BUS 888*
+`🚌 *BUS ORIGAMI*
 
 Nessun plugin ancora eseguito attraverso il bus.
 
@@ -53,7 +53,7 @@ Nessun plugin ancora eseguito attraverso il bus.
   })
 
   return m.reply(
-`🚌 *BUS 888*
+`🚌 *BUS ORIGAMI*
 
 📈 Plugin monitorati: *${all.length}*
 ⏱️ Timeout totali: *${timeouts}*
