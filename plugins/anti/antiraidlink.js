@@ -110,14 +110,14 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }
     if (!warn) {
       await conn.sendMessage(m.chat, {
         text:
-`🚫 *ANTI-RAIDLINK*
+`🚫 *ORIGAMI HA MESSO IL PRESERVATIVO*
 ━━━━━━━━━━━━━━━━━━━━━
 ⚠️ Ho trovato un QR promo in un'immagine.
 🔗 Tipo: *${hit.label}*
 🎯 Azione: *${action.toUpperCase()}*
 ${removed ? '✅ Utente rimosso' : '⚠️ Non sono riuscito a rimuoverlo'}
 ━━━━━━━━━━━━━━━━━━━━━
-🔐 *888 SECURITY*`,
+🔐 *ORIGAMI SECURITY*`,
         contextInfo: { mentionedJid: [m.sender] },
         mentions: [m.sender]
       }).catch(() => {})
