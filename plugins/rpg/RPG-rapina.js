@@ -57,7 +57,7 @@ Riprova tra:
 🎯 Obiettivo: ${target.nome}
 
 💰 Bottino ottenuto:
-*${guadagno} 888COIN*
+*${guadagno} COIN*
 
 🔥 Sei scappato senza lasciare tracce!
 `.trim()
@@ -90,7 +90,7 @@ ${target.nome}
 🎯 Obiettivo: ${target.nome}
 
 💸 Multa ricevuta:
-*${multa} 888COIN*
+*${multa} COIN*
 
 Pianifica meglio la prossima rapina…
 `.trim()
