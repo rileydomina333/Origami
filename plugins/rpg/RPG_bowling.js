@@ -46,9 +46,9 @@ let handler = async (m, { conn, text }) => {
   if (!puntata || puntata <= 0) {
     return conn.sendMessage(m.chat, {
       text: `
-🎳 *BOWLING 888*
+🎳 *BOWLING ORIGAMI*
 
-💼 Saldo: *${user.money || 0} 888COIN*
+💼 Saldo: *${user.money || 0} COIN*
 
 📊 Pagamenti:
 ⚡ Strike (10) → x4  
@@ -69,8 +69,8 @@ Scegli la puntata:
     }, { quoted: m })
   }
 
-  if (puntata < 10) return m.reply('❌ Puntata minima: *10 888COIN*')
-  if ((user.money || 0) < puntata) return m.reply(`❌ Non hai abbastanza soldi! Hai *${user.money || 0} 888COIN*`)
+  if (puntata < 10) return m.reply('❌ Puntata minima: *10 COIN*')
+  if ((user.money || 0) < puntata) return m.reply(`❌ Non hai abbastanza soldi! Hai *${user.money || 0} COIN*`)
 
   const pin = tiro()
   const pins = pinAbbattuti(pin)
@@ -82,38 +82,38 @@ Scegli la puntata:
   if (pin === 10) {
     moneyMod = puntata * 4
     user.money += moneyMod
-    esito = `🏆 Hai vinto *${moneyMod} 888COIN*!`
+    esito = `🏆 Hai vinto *${moneyMod} COIN*!`
   } else if (pin >= 8) {
     moneyMod = puntata * 2
     user.money += moneyMod
-    esito = `🏆 Hai vinto *${moneyMod} 888COIN*!`
+    esito = `🏆 Hai vinto *${moneyMod} COIN*!`
   } else if (pin >= 5) {
     moneyMod = puntata
     user.money += moneyMod
-    esito = `🏆 Hai vinto *${moneyMod} 888COIN*!`
+    esito = `🏆 Hai vinto *${moneyMod} COIN*!`
   } else if (pin >= 1) {
     moneyMod = Math.floor(puntata / 2)
     user.money -= moneyMod
-    esito = `💀 Hai perso *${moneyMod} 888COIN*!`
+    esito = `💀 Hai perso *${moneyMod} COIN*!`
   } else {
     moneyMod = puntata
     user.money -= moneyMod
-    esito = `💀 Hai perso *${puntata} 888COIN*!`
+    esito = `💀 Hai perso *${puntata} COIN*!`
   }
 
   await conn.sendMessage(m.chat, {
     text: `
-🎳 *BOWLING 888*
+🎳 *BOWLING ORIGAMI*
 
 Hai lanciato:
 
 ${pins}
 
 🏅 ${risultato}
-💵 Puntata: *${puntata} 888COIN*
+💵 Puntata: *${puntata} COIN*
 ${esito}
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim(),
     buttons: [
       { buttonId: `.bowling ${puntata}`, buttonText: { displayText: "🔄 Lancia ancora" }, type: 1 },
