@@ -34,7 +34,7 @@ let handler = async (m, { conn, isAdmin, command, text }) => {
     delete global.scarceri[adminJid]
 
     await conn.sendMessage(m.chat, {
-      text: `✅ @${targetJid.split('@')[0]} *è stato scarcerato!* 💰 Hai pagato ${CAUZIONE} 888COIN di cauzione.\n\nPuoi tornare a scrivere e usare comandi.`,
+      text: `✅ @${targetJid.split('@')[0]} *è stato scarcerato!* 💰 Hai pagato ${CAUZIONE} COIN di cauzione.\n\nPuoi tornare a scrivere e usare comandi.`,
       mentions: [targetJid]
     }, { quoted: m })
     return
@@ -116,12 +116,12 @@ let handler = async (m, { conn, isAdmin, command, text }) => {
 
     let adminUser = global.db.data.users[m.sender]
     if (!adminUser) {
-      adminUser = global.db.data.users[m.sender] = { exp: 0, '888coin': 0, muto: false, registered: false, money: 0 }
+      adminUser = global.db.data.users[m.sender] = { exp: 0, 'coin': 0, muto: false, registered: false, money: 0 }
     }
 
     if ((adminUser.money || 0) < CAUZIONE) {
       return await conn.sendMessage(m.chat, {
-        text: `❌ Non hai abbastanza soldi per scarcerare @${jailTarget.split('@')[0]}\n\n💰 Cauzione: ${CAUZIONE} 888COIN\n💵 Tuoi soldi: ${adminUser.money || 0} 888COIN`
+        text: `❌ Non hai abbastanza soldi per scarcerare @${jailTarget.split('@')[0]}\n\n💰 Cauzione: ${CAUZIONE} COIN\n💵 Tuoi soldi: ${adminUser.money || 0} COIN`
       }, { quoted: m, mentions: [jailTarget] })
     }
 
@@ -129,7 +129,7 @@ let handler = async (m, { conn, isAdmin, command, text }) => {
     global.scarceri[adminJid] = { target: jailTarget }
 
     await conn.sendMessage(m.chat, {
-      text: `❓ Sei sicuro di voler scarcerare @${jailTarget.split('@')[0]}?\n\n💰 Cauzione: ${CAUZIONE} 888COIN\n\nI tuoi soldi: ${adminUser.money || 0} 888COIN`,
+      text: `❓ Sei sicuro di voler scarcerare @${jailTarget.split('@')[0]}?\n\n💰 Cauzione: ${CAUZIONE} COIN\n\nI tuoi soldi: ${adminUser.money || 0} COIN`,
         buttons: [
         { buttonId: '.confermascarcero', buttonText: { displayText: '✅ 𝐒𝐈' }, type: 1 },
         { buttonId: '.annullascarcero', buttonText: { displayText: '❌ 𝐍𝐎' }, type: 1 }
