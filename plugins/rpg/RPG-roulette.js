@@ -4,16 +4,16 @@ let handler = async (m, { conn, args, usedPrefix = '.' }) => {
   const user = global.db.data.users[m.sender]
 
   if (!user) return m.reply('❌ Non trovo il tuo profilo nel database.')
-  if (!Number.isSafeInteger(bet) || bet < 50) return m.reply(`💸 Puntata minima: *50 888COIN*.\nEsempio: ${usedPrefix}rouletteplay 100`)
+  if (!Number.isSafeInteger(bet) || bet < 50) return m.reply(`💸 Puntata minima: *50 COIN*.\nEsempio: ${usedPrefix}rouletteplay 100`)
   const money = Math.max(0, Number(user.money) || 0)
-  if (money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*. Saldo: *${money} 888COIN*.`)
+  if (money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*. Saldo: *${money} COIN*.`)
 
   // Se non ha scelto rosso/nero → mostra menu
   if (!choice) {
     return conn.sendMessage(m.chat, {
       text: `
-🎰 *ROULETTE 888*
-💰 Puntata: *${bet} 888COIN*
+🎰 *ROULETTE ORIGAMI*
+💰 Puntata: *${bet} COIN*
 
 Scegli dove puntare:
 `.trim(),
@@ -39,26 +39,26 @@ Scegli dove puntare:
   if (win) {
     user.money += bet
     text = `
-🎰 *ROULETTE 888*
+🎰 *ROULETTE ORIGAMI*
 🎯 Risultato: *${result.toUpperCase()}*
 
 🟢 Hai vinto!
-💰 Guadagno: *+${bet} 888COIN*
+💰 Guadagno: *+${bet} COIN*
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   } else {
     user.money -= bet
     if (user.money < 0) user.money = 0
 
     text = `
-🎰 *ROULETTE 888*
+🎰 *ROULETTE ORIGAMI*
 🎯 Risultato: *${result.toUpperCase()}*
 
 🔴 Hai perso!
-💸 Perdita: *-${bet} 888COIN*
+💸 Perdita: *-${bet} COIN*
 
-💼 Saldo: *${user.money} 888COIN*
+💼 Saldo: *${user.money} COIN*
 `.trim()
   }
 
