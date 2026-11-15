@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
       forwardingScore: 999,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363427251015414@newsletter',
+        newsletterJid: '',
         newsletterName: `✦ ${global.db?.data?.nomedelbot || pkg.name} ✦`,
         serverMessageId: 143
       }
