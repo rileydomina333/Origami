@@ -1,5 +1,6 @@
 
-// 🌿 GIARDINO DI MARJUANA - ORIGAMI BOT
+// 🌿 GIARDINO RPG - ORIGAMI BOT
+// Comandi:
 // .giardino
 // .giardino inizia
 // .giardino profilo
@@ -107,7 +108,7 @@ const NEGOZIO = [
     nome: 'Annaffiatoio',
     emoji: '💧',
     prezzo: 100,
-    desc: 'Serve per annaffiare'
+    desc: 'Rifornisce di acqua'
   },
   {
     id: 'concime',
@@ -125,7 +126,11 @@ const NEGOZIO = [
   }
 ]
 
+// DATABASE
 function getPlayer(m) {
+  if (!global.db || !global.db.data)
+    throw new Error('Database non inizializzato')
+
   if (!global.db.data.giardino)
     global.db.data.giardino = {}
 
@@ -145,7 +150,23 @@ function getPlayer(m) {
     }
   }
 
-  return global.db.data.giardino[m.sender]
+  const p = global.db.data.giardino[m.sender]
+
+  // Compatibilità salvataggi precedenti
+  if (!p.inventario)
+    p.inventario = { acqua: 3, concime: 1, vaso: 0 }
+
+  p.inventario.acqua ??= 0
+  p.inventario.concime ??= 0
+  p.inventario.vaso ??= 0
+
+  p.piante ||= []
+  p.soldi ??= 200
+  p.xp ??= 0
+  p.raccolti ??= 0
+  p.started ??= false
+
+  return p
 }
 
 function getLivello(xp) {
@@ -153,13 +174,28 @@ function getLivello(xp) {
 }
 
 function maxPiante(p) {
-  return 3 + (p.inventario.vaso || 0)
+  return 3 + p.inventario.vaso
+}
+
+function trovaPianta(nome) {
+  return PIANTE.find(x =>
+    x.id === nome ||
+    x.nome.toLowerCase() === nome
+  )
 }
 
 let handler = async (m, { conn, text, usedPrefix = '.' }) => {
+
   const p = getPlayer(m)
-  const args = (text || '').trim().toLowerCase().split(/\s+/)
+
+  const args = (text || '')
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean)
+
   const cmd = args[0] || ''
+  const nome = args.slice(1).join(' ')
   const tag = '@' + m.sender.split('@')[0]
 
   const send = (txt) => conn.sendMessage(m.chat, {
@@ -171,14 +207,14 @@ let handler = async (m, { conn, text, usedPrefix = '.' }) => {
   if (!cmd || cmd === 'menu' || cmd === 'aiuto') {
     return send(
 `╭━━━━━━🌿━━━━━━╮
-   ✦ GIARDINO ✦
+   GIARDINO RPG
 ╰━━━━━━🌿━━━━━━╯
 
 👋 Ciao ${tag}!
 
-Gestisci il tuo giardino di marjuana, colleziona varietà, guadagna soldi,spaccia e sali di livello!
+Gestisci il tuo giardino e colleziona piante.
 
-📋 COMANDI:
+📋 COMANDI
 
 🌱 ${usedPrefix}giardino inizia
 👤 ${usedPrefix}giardino profilo
@@ -189,7 +225,7 @@ Gestisci il tuo giardino di marjuana, colleziona varietà, guadagna soldi,spacci
 🏪 ${usedPrefix}giardino negozio
 💰 ${usedPrefix}giardino compra <nome>
 
-💰 Inizi con 200$
+💰 200$ iniziali
 💧 3 acqua
 💩 1 concime`
     )
@@ -198,22 +234,21 @@ Gestisci il tuo giardino di marjuana, colleziona varietà, guadagna soldi,spacci
   // INIZIA
   if (cmd === 'inizia' || cmd === 'start') {
     if (p.started)
-      return send('⚠️ Hai già iniziato!')
+      return send('⚠️ Hai già iniziato il gioco!')
 
     p.started = true
 
     return send(
-`🌱 BENVENUTO NEL TUO GIARDINO!
+`🌱 BENVENUTO NEL GIARDINO!
 
 Hai ricevuto:
+
 💰 200$
 💧 3 acqua
 💩 1 concime
+🪴 3 posti disponibili
 
-Usa:
-${usedPrefix}giardino negozio
-
-Per vedere tutte le varietà disponibili!`
+Usa ${usedPrefix}giardino negozio per iniziare!`
     )
   }
 
@@ -222,36 +257,43 @@ Per vedere tutte le varietà disponibili!`
 
   // PROFILO
   if (cmd === 'profilo') {
-    const lista = p.piante.length === 0
-      ? '_Nessuna pianta nel giardino._'
-      : p.piante.map((pl, i) => {
+
+    const lista = p.piante.length
+      ? p.piante.map((pl, i) => {
+
           const info = PIANTE.find(x => x.id === pl.id)
-          if (!info) return ''
+
+          if (!info) return `${i + 1}. ❓ Pianta sconosciuta`
 
           const tempoTot = pl.concimata
             ? info.tempo * 0.7
             : info.tempo
 
           const trascorso = Date.now() - pl.piantataIl
+
           const perc = Math.min(
             100,
             Math.floor(trascorso / tempoTot * 100)
           )
 
           const pronta =
-            perc >= 100 && pl.acquaData >= info.acqua
+            perc >= 100 &&
+            pl.acquaData >= info.acqua
 
           return `${i + 1}. ${info.emoji} *${info.nome}*
-   ⭐ ${info.rarita}
-   ${pronta ? '✅ PRONTA!' : `🌱 Crescita: ${perc}%`}
-   💧 ${pl.acquaData}/${info.acqua}
-   ${pl.concimata ? '💩 Concimata' : 'Senza concime'}`
+⭐ ${info.rarita}
+${pronta ? '✅ PRONTA!' : `🌱 Crescita: ${perc}%`}
+💧 ${pl.acquaData}/${info.acqua}
+${pl.concimata ? '💩 Concimata' : 'Non concimata'}`
+
         }).join('\n\n')
+      : '_Non hai ancora piante._'
 
     return send(
 `╭━━━━🌿 GIARDINO ━━━━╮
 
 👤 ${tag}
+
 ⭐ Livello: ${getLivello(p.xp)}
 ✨ XP: ${p.xp}
 💰 Soldi: ${p.soldi}$
@@ -261,7 +303,7 @@ Per vedere tutte le varietà disponibili!`
 💩 Concime: ${p.inventario.concime}
 🪴 Posti: ${p.piante.length}/${maxPiante(p)}
 
-🌱 LE TUE PIANTE:
+🌱 LE TUE PIANTE
 
 ${lista}
 
@@ -271,10 +313,11 @@ ${lista}
 
   // NEGOZIO
   if (cmd === 'negozio' || cmd === 'shop') {
+
     const semi = PIANTE.map(x =>
-      `${x.emoji} *${x.nome}*
-⭐ Rarità: ${x.rarita}
-💰 Seme: ${x.prezzoSeme}$
+`${x.emoji} *${x.nome}*
+⭐ ${x.rarita}
+💰 Prezzo: ${x.prezzoSeme}$
 ⏳ Tempo: ${x.tempo / 1000}s
 💧 Acqua: ${x.acqua}
 🪙 Ricompensa: ${x.ricompensa}$
@@ -282,7 +325,9 @@ ${lista}
     ).join('\n\n')
 
     const attrezzi = NEGOZIO.map(x =>
-      `${x.emoji} *${x.nome}* - ${x.prezzo}$\n${x.desc}`
+`${x.emoji} *${x.nome}*
+💰 ${x.prezzo}$
+📝 ${x.desc}`
     ).join('\n\n')
 
     return send(
@@ -290,33 +335,34 @@ ${lista}
 
 💰 Portafoglio: ${p.soldi}$
 
-🌱 VARIETÀ DISPONIBILI:
+🌱 CATALOGO
 
 ${semi}
 
-🧰 ATTREZZI:
+🧰 ATTREZZI
 
 ${attrezzi}
 
-Per acquistare:
+Usa:
 ${usedPrefix}giardino compra <nome>
 
 ╰━━━━━━━━━━━━━━━━╯`
     )
   }
 
-  // COMPRA
+  // COMPRA ATTREZZI
   if (cmd === 'compra' || cmd === 'buy') {
-    const want = args.slice(1).join(' ')
 
-    if (!want)
-      return send('⚠️ Scrivi il nome di quello che vuoi comprare.')
+    if (!nome)
+      return send('⚠️ Scrivi cosa vuoi comprare!')
 
     const att = NEGOZIO.find(x =>
-      x.id === want || x.nome.toLowerCase() === want
+      x.id === nome ||
+      x.nome.toLowerCase() === nome
     )
 
     if (att) {
+
       if (p.soldi < att.prezzo)
         return send(`❌ Servono ${att.prezzo}$! Hai ${p.soldi}$`)
 
@@ -325,18 +371,21 @@ ${usedPrefix}giardino compra <nome>
       if (att.id === 'vaso')
         p.inventario.vaso++
       else
-        p.inventario[att.id] =
-          (p.inventario[att.id] || 0) + 1
+        p.inventario[att.id]++
 
-      return send(`✅ Comprato ${att.emoji} ${att.nome}!`)
+      return send(
+`✅ ACQUISTO COMPLETATO!
+
+${att.emoji} ${att.nome}
+💰 Spesi: ${att.prezzo}$
+💵 Saldo: ${p.soldi}$`
+      )
     }
 
-    const pianta = PIANTE.find(x =>
-      x.id === want || x.nome.toLowerCase() === want
-    )
+    const pianta = trovaPianta(nome)
 
     if (!pianta)
-      return send('❌ Pianta non trovata!')
+      return send('❌ Pianta non trovata! Usa .giardino negozio')
 
     if (p.piante.length >= maxPiante(p))
       return send('❌ Giardino pieno! Compra un vaso extra.')
@@ -357,9 +406,10 @@ ${usedPrefix}giardino compra <nome>
 `🌱 NUOVA PIANTA!
 
 ${pianta.emoji} *${pianta.nome}*
-⭐ Rarità: ${pianta.rarita}
+⭐ ${pianta.rarita}
 
-💧 Annaffiature richieste: ${pianta.acqua}
+💰 Pagato: ${pianta.prezzoSeme}$
+💧 Acqua richiesta: ${pianta.acqua}
 ⏳ Tempo: ${pianta.tempo / 1000}s
 
 Usa ${usedPrefix}giardino annaffia per prendertene cura!`
@@ -368,27 +418,56 @@ Usa ${usedPrefix}giardino annaffia per prendertene cura!`
 
   // PIANTA
   if (cmd === 'pianta') {
-    const want = args.slice(1).join(' ')
-    if (!want) return send('⚠️ Scrivi il nome della pianta!')
 
-    return handler(m, {
-      conn,
-      text: `compra ${want}`,
-      usedPrefix
+    if (!nome)
+      return send('⚠️ Scrivi il nome della pianta!')
+
+    // Gestione diretta senza richiamare handler
+    const pianta = trovaPianta(nome)
+
+    if (!pianta)
+      return send('❌ Pianta non trovata! Usa .giardino negozio')
+
+    if (p.piante.length >= maxPiante(p))
+      return send('❌ Giardino pieno!')
+
+    if (p.soldi < pianta.prezzoSeme)
+      return send(`❌ Servono ${pianta.prezzoSeme}$!`)
+
+    p.soldi -= pianta.prezzoSeme
+
+    p.piante.push({
+      id: pianta.id,
+      piantataIl: Date.now(),
+      acquaData: 0,
+      concimata: false
     })
+
+    return send(
+`🌱 HAI AGGIUNTO UNA PIANTA!
+
+${pianta.emoji} ${pianta.nome}
+⭐ ${pianta.rarita}
+💰 Pagato: ${pianta.prezzoSeme}$
+💵 Saldo: ${p.soldi}$`
+    )
   }
 
   // ANNAFFIA
   if (['annaffia', 'innaffia', 'acqua'].includes(cmd)) {
+
     if (!p.piante.length)
       return send('⚠️ Non hai piante!')
 
     if (p.inventario.acqua <= 0)
-      return send('❌ Acqua terminata! Comprala nel negozio.')
+      return send('❌ Hai finito l’acqua!')
 
     const daAnnaffiare = p.piante.filter(pl => {
+
       const info = PIANTE.find(x => x.id === pl.id)
+
       return info && pl.acquaData < info.acqua
+
     })
 
     if (!daAnnaffiare.length)
@@ -405,13 +484,14 @@ Usa ${usedPrefix}giardino annaffia per prendertene cura!`
 🌱 Piante annaffiate: ${daAnnaffiare.length}
 💧 Acqua rimasta: ${p.inventario.acqua}
 
-Controlla il tuo giardino con:
+Controlla:
 ${usedPrefix}giardino profilo`
     )
   }
 
   // CONCIMA
   if (cmd === 'concima' || cmd === 'concime') {
+
     if (!p.piante.length)
       return send('⚠️ Non hai piante!')
 
@@ -429,22 +509,27 @@ ${usedPrefix}giardino profilo`
       pl.concimata = true
 
     return send(
-'💩 GIARDINO CONCIMATO!\n\n✨ Crescita più veloce del 30%!'
+`💩 GIARDINO CONCIMATO!
+
+✨ Crescita accelerata del 30%!
+💩 Concime rimasto: ${p.inventario.concime}`
     )
   }
 
   // RACCOGLI
   if (cmd === 'raccogli' || cmd === 'raccolta') {
+
     if (!p.piante.length)
       return send('⚠️ Non hai piante da raccogliere!')
 
     let guadagno = 0
     let xp = 0
     let raccolte = 0
-    let nomi = []
-    let rimaste = []
+    const nomi = []
+    const rimaste = []
 
     for (const pl of p.piante) {
+
       const info = PIANTE.find(x => x.id === pl.id)
 
       if (!info) continue
@@ -458,18 +543,20 @@ ${usedPrefix}giardino profilo`
         pl.acquaData >= info.acqua
 
       if (pronta) {
+
         guadagno += info.ricompensa
         xp += info.xp
         raccolte++
 
         nomi.push(`${info.emoji} ${info.nome}`)
+
       } else {
         rimaste.push(pl)
       }
     }
 
     if (!raccolte)
-      return send('⏳ Nessuna pianta è ancora pronta! Controlla il profilo.')
+      return send('⏳ Nessuna pianta pronta! Controlla il profilo.')
 
     p.piante = rimaste
     p.soldi += guadagno
@@ -482,22 +569,26 @@ ${usedPrefix}giardino profilo`
 
 ${nomi.join('\n')}
 
-🌱 Piante raccolte: ${raccolte}
+🌱 Raccolte: ${raccolte}
 💰 Guadagno: +${guadagno}$
-✨ XP guadagnati: +${xp}
+✨ XP: +${xp}
 
 ⭐ Livello: ${p.livello}
-💰 Saldo: ${p.soldi}$
+💵 Saldo: ${p.soldi}$
 
 ╰━━━━━━━━━━━━━━━━╯`
     )
   }
 
-  return send(`❓ Comando sconosciuto!\nUsa ${usedPrefix}giardino`)
+  return send(
+`❓ COMANDO NON RICONOSCIUTO!
+
+Usa ${usedPrefix}giardino per vedere il menu.`
+  )
 }
 
-handler.help = ['gasto']
+handler.help = ['giardino']
 handler.tags = ['giochi', 'rpg']
-handler.command = /^(gasto|erba|garden)$/i
+handler.command = /^(giardino|orto|garden|gasto|erba)$/i
 
 export default handler
