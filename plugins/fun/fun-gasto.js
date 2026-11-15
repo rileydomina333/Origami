@@ -176,7 +176,7 @@ let handler = async (m, { conn, text, usedPrefix = '.' }) => {
 
 👋 Ciao ${tag}!
 
-Gestisci il tuo giardino, colleziona varietà, guadagna soldi e sali di livello!
+Gestisci il tuo giardino di marjuana, colleziona varietà, guadagna soldi,spaccia e sali di livello!
 
 📋 COMANDI:
 
