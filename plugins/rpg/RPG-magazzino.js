@@ -9,7 +9,7 @@ async function handler(m, { conn }) {
   if (user.magazzino.length === 0) {
     return conn.sendMessage(m.chat, { 
       text: `
-📦 *MAGAZZINO 888*
+📦 *MAGAZZINO ORIGAMI*
 Il tuo magazzino è attualmente vuoto.
 Nessuna merce disponibile.
 `.trim()
@@ -18,14 +18,14 @@ Nessuna merce disponibile.
 
   // 📦 LISTA MERCE — 888
   let testo = `
-📦 *MAGAZZINO 888*
+📦 *MAGAZZINO ORIGAMI*
 Merce disponibile:
 `.trim()
 
   user.magazzino.forEach((item, index) => {
     testo += `
 ${index + 1}. *${item.nome}* ×${item.quantità}
-💰 Valore unitario: *${item.valore} 888COIN*
+💰 Valore unitario: *${item.valore} COIN*
 `
   })
 
