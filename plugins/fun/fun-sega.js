@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks'
 
 let handler = async (m, { conn }) => {
 
-  let nomeDelBot = global.db.data.nomedelbot || `𝐑𝐈𝐋𝐄𝐘-𝐁𝐎𝐓`
+  let nomeDelBot = global.db.data.nomedelbot || ` 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧`
 
   // Identifica il destinatario
   let destinatario
