@@ -91,7 +91,7 @@ export async function before(m, { conn, isAdmin, isOwner, isROwner, isMods }) {
       if (!cfg.silent) {
         await conn.sendMessage(chat, {
           text:
-`🌊 *ANTI-FLOOD 888*
+`🌊 *ANTI-FLOOD*
 ━━━━━━━━━━━━━━━━━━━━━
 ⚠️ Troppi comandi in pochi secondi.
 📊 Comandi: *${log.length}* nella finestra
@@ -99,7 +99,7 @@ export async function before(m, { conn, isAdmin, isOwner, isROwner, isMods }) {
 ⏱️ Finestra: *${cfg.window / 1000}s*
 ━━━━━━━━━━━━━━━━━━━━━
 I tuoi comandi verranno ignorati per un po'.
-🔐 *888 SECURITY*`,
+🔐 *ORIGAMI SECURITY*`,
           contextInfo: { mentionedJid: [m.sender] },
           mentions: [m.sender]
         }).catch(() => {})
