@@ -72,7 +72,7 @@ let handler = async (m, { conn, text, usedPrefix = '.' }) => {
 ╰━━━━━━━🔥━━━━━━━╯
 
 *😏 𝐒𝐜𝐞𝐠𝐥𝐢 𝐥𝐚 𝐦𝐨𝐝𝐚𝐥𝐢𝐭à.*`,
-        footer: '𝟴𝟴𝟴 𝗕𝗢𝗧',
+        footer: '*ORIGAMI BOT*',
         buttons: [
           {
             buttonId: `${usedPrefix}incula lentamente ${mentionTarget}`,
