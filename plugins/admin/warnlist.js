@@ -40,7 +40,7 @@ let handler = async (m, { conn, usedPrefix, isOwner, isROwner, isAdmin, isMods, 
   if (!rows.length && allWarned.length) rows = allWarned
   const mentions = rows.map(r => r.jid)
 
-  let text = `⚠️ *WARNLIST 888*\n`
+  let text = `⚠️ *WARNLIST ORIGAMI*\n`
   text += `👥 *Utenti warnati:* ${rows.length}\n`
   text += `━━━━━━━━━━━━━━━━━━━━━━\n`
 
@@ -51,7 +51,7 @@ let handler = async (m, { conn, usedPrefix, isOwner, isROwner, isAdmin, isMods, 
     text += `👤 *Il tuo ruolo:* ${roleLabel(role)}`
     return conn.sendMessage(m.chat, {
       text,
-      footer: '𝟴𝟴𝟴 BOT • Moderazione',
+      footer: 'ORIGAMI BOT • Moderazione',
       interactiveButtons: [
         quick('⚠️ Warn', `${p}warn`),
         quick('🛡️ Moderatori', `${p}mods`)
@@ -71,7 +71,7 @@ let handler = async (m, { conn, usedPrefix, isOwner, isROwner, isAdmin, isMods, 
   return conn.sendMessage(m.chat, {
     text,
     mentions,
-    footer: '𝟴𝟴𝟴 BOT • Moderazione',
+    footer: 'ORIGAMI BOT • Moderazione',
     interactiveButtons: [
       quick('✅ Unwarn', `${p}unwarn`),
       quick('🛡️ Moderatori', `${p}mods`)
