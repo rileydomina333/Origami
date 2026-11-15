@@ -25,7 +25,7 @@ Esempio: ${usedPrefix}sorte testa 150`,
 
   if (scommessa > users.money)
     throw `❌ *FONDI INSUFFICIENTI*
-Ti mancano *${scommessa - users.money} 888COIN* per effettuare questa scommessa.`
+Ti mancano *${scommessa - users.money} COIN* per effettuare questa scommessa.`
 
   let risultatoCorsa = cavalli[Math.floor(Math.random() * cavalli.length)]
 
@@ -35,16 +35,16 @@ Ti mancano *${scommessa - users.money} 888COIN* per effettuare questa scommessa.
     return m.reply(
 `🎉 *HAI VINTO!*
 È uscito: *${risultatoCorsa}*
-Vincita: *${vincita} 888COIN*
-Saldo attuale: *${users.money} 888COIN*`
+Vincita: *${vincita} COIN*
+Saldo attuale: *${users.money} COIN*`
     )
   } else {
     users.money -= scommessa
     return m.reply(
 `❌ *HAI PERSO*
 È uscito: *${risultatoCorsa}*
-Perdita: *${scommessa} 888COIN*
-Saldo attuale: *${users.money} 888COIN*`
+Perdita: *${scommessa} COIN*
+Saldo attuale: *${users.money} COIN*`
     )
   }
 }
