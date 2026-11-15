@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix, isOwner, isROwner }) => {
     },
     message: {
       locationMessage: {
-        name: '⚙️ MENU FUNZIONI 888',
+        name: '⚙️ MENU FUNZIONI',
         jpegThumbnail: imgBuffer
       }
     },
@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix, isOwner, isROwner }) => {
   const p = usedPrefix
 
   const menuText = `
-⚙️ *MENU FUNZIONI 888*
+⚙️ *FUNZIONI ORIGAMI SECURITY*
 Stato pannello: Moduli di Sicurezza
 
 🔧 *Funzioni Gruppo*
