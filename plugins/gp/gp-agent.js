@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendRichMessage(m.chat, [
             { 
                 messageType: 2, 
-                messageText: `🤖 *AGENTE AI RICCO | 888-BOT*\n\nHo elaborato la tua richiesta:\n"\${text}"` 
+                messageText: `🤖 *AGENTE AI RICCO | ORIGAMI-BOT*\n\nHo elaborato la tua richiesta:\n"\${text}"` 
             },
             {
                 messageType: 5,
@@ -30,8 +30,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.help = ['ai <prompt>', '888ai <prompt>', 'agent <prompt>'];
+handler.help = ['ai <prompt>', 'ORIGAMIai <prompt>', 'agent <prompt>'];
 handler.tags = ['ai'];
-handler.command = ["ai", "888ai", "agent"];
+handler.command = ["ai", "ORIGAMIai", "agent"];
 
 export default handler;
