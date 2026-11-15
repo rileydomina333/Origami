@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
   const plugins = Object.keys(global.plugins || {}).length
 
   const txt =
-`⚡ *888 BOT — Sistema Ufficiale*
+`⚡ *ORIGAMI BOT — Sistema Ufficiale*
 Benvenuto nel pannello principale.
 
 ✨ *Pannello Informazioni Origami* ✨
