@@ -16,7 +16,7 @@ const handler = async (m, { conn, participants, groupMetadata, args }) => {
     .join('\n')
 
   const text = `
-⚠️ *RICHIAMO ADMIN 888*
+⚠️ *RICHIAMO ADMIN*
 Segnalazione staff del gruppo
 
 📝 *Messaggio*
