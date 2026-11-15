@@ -31,7 +31,7 @@ let handler = async (m, { command, text }) => {
       }
       games[user] = { grid: createGrid(), score: 0, nextBlock: getRandomBlock() };
       return m.reply(
-        `🎮 *888 BOT - Block Blast*\n\n${displayGrid(games[user].grid)}\n\n🔜 *Prossimo blocco:* ${games[user].nextBlock}\n📌 Usa \`.putblast A2\` per posizionarlo!`
+        `🎮 *ORIGAMI BOT - Block Blast*\n\n${displayGrid(games[user].grid)}\n\n🔜 *Prossimo blocco:* ${games[user].nextBlock}\n📌 Usa \`.putblast A2\` per posizionarlo!`
       );
     }
 
@@ -40,7 +40,7 @@ let handler = async (m, { command, text }) => {
         return m.reply("⚠️ Nessuna partita in corso! Usa `.startblast` per iniziare.");
       }
       return m.reply(
-        `🎮 *888 BOT - Block Blast*\n\n${displayGrid(games[user].grid)}\n\n🔜 *Prossimo:* ${games[user].nextBlock}\n⭐ *Punti:* ${games[user].score}`
+        `🎮 *ORIGAMI BOT - Block Blast*\n\n${displayGrid(games[user].grid)}\n\n🔜 *Prossimo:* ${games[user].nextBlock}\n⭐ *Punti:* ${games[user].score}`
       );
     }
 
@@ -77,7 +77,7 @@ let handler = async (m, { command, text }) => {
       game.grid = cleaned;
 
       return m.reply(
-        `🎮 *888 BOT - Block Blast*\n\n${displayGrid(game.grid)}\n\n🔜 *Prossimo:* ${game.nextBlock}\n⭐ *Punti:* ${game.score}`
+        `🎮 *ORIGAMI BOT - Block Blast*\n\n${displayGrid(game.grid)}\n\n🔜 *Prossimo:* ${game.nextBlock}\n⭐ *Punti:* ${game.score}`
       );
     }
 
