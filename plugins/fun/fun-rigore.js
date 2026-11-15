@@ -16,13 +16,13 @@ let handler = async (m, { conn, command }) => {
 
     return conn.sendMessage(m.chat, {
       text:
-`╭━━━〔 ⚽ *RIGORE 888* 〕━━━┈
+`╭━━━〔 ⚽ *RIGORE ORIGAMI* 〕━━━┈
 ┃ Scegli dove tirare:
 ┃━━━━━━━━━━━━━━━━━━
 ┃ 🟢 Sinistra
 ┃ ⚪ Centro
 ┃ 🔴 Destra
-╰━━━━━━━━━━━━━━━━━━┈`,
+╰━━━━━━━━━━━━━━━━━━━━━━━━━━━┈`,
       buttons: [
         { buttonId: ".tira sinistra", buttonText: { displayText: "🟢 Sinistra" }, type: 1 },
         { buttonId: ".tira centro", buttonText: { displayText: "⚪ Centro" }, type: 1 },
@@ -33,7 +33,7 @@ let handler = async (m, { conn, command }) => {
   }
 
   // ───────────────────────────────
-  // 🔥 TIRA IL RIGORE — 888
+  // 🔥 TIRA IL RIGORE — ORIGAMI
   // ───────────────────────────────
   if (command === "tira") {
 
@@ -84,7 +84,7 @@ let handler = async (m, { conn, command }) => {
   }
 
   // ───────────────────────────────
-  // 🔥 CLASSIFICA RIGORI — 888
+  // 🔥 CLASSIFICA RIGORI — ORIGAMI
   // ───────────────────────────────
   if (command === "toprigori") {
 
