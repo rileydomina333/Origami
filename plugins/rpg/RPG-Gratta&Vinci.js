@@ -14,14 +14,14 @@ let handler = async (m, { conn }) => {
   if (timePassed < COOLDOWN) {
     const remaining = msToTime(COOLDOWN - timePassed);
     return conn.sendMessage(m.chat, {
-      text: `⏳ *COOLDOWN 888*\nDevi attendere *${remaining}* prima di grattare di nuovo.`
+      text: `⏳ *COOLDOWN ORIGAMI*\nDevi attendere *${remaining}* prima di grattare di nuovo.`
     }, { quoted: m });
   }
 
   // SOLDI INSUFFICIENTI — Grafica Premium 888
   if (user.money < 500) {
     return conn.sendMessage(m.chat, {
-      text: `❌ *FONDI INSUFFICIENTI*\nServono *500 888COIN* per acquistare un Gratta & Vinci.`
+      text: `❌ *FONDI INSUFFICIENTI*\nServono *500 COIN* per acquistare un Gratta & Vinci.`
     }, { quoted: m });
   }
 
@@ -43,20 +43,20 @@ let handler = async (m, { conn }) => {
   if (chance < 1) {
     griglia[0] = griglia[1] = griglia[2] = "🩸";
     premio = 15000;
-    risultato = `🎉 *JACKPOT 888!*\nHai vinto *15000 888COIN*!`;
+    risultato = `🎉 *JACKPOT ORIGAMI!*\nHai vinto *15000 COIN*!`;
     user.money += premio;
   }
 
   // BOMBA — Grafica Premium 888
   else if (griglia.includes("💣")) {
-    risultato = `💥 *BOMBA!*\nHai perso *2000 888COIN*!`;
+    risultato = `💥 *BOMBA!*\nHai perso *2000 COIN*!`;
     user.bank = Math.max(0, user.bank - 2000);
   }
 
   // TRIPLA — Grafica Premium 888
   else if (griglia[0] === griglia[1] && griglia[1] === griglia[2]) {
     premio = 2000;
-    risultato = `✨ *TRIPLA COMBINAZIONE!*\nHai vinto *2000 888COIN*!`;
+    risultato = `✨ *TRIPLA COMBINAZIONE!*\nHai vinto *2000 COIN*!`;
     user.money += premio;
   }
 
@@ -66,14 +66,14 @@ let handler = async (m, { conn }) => {
   }
 
   const messaggio = `
-🎟️ *GRATTA & VINCI 888*
+🎟️ *GRATTA & VINCI ORIGAMI*
 
 ${griglia[0]} │ ${griglia[1]} │ ${griglia[2]}
 
-🎟️ Costo: 500 888COIN  
+🎟️ Costo: 500 COIN  
 🧾 Risultato: ${risultato}  
-💵 Contanti: ${user.money} 888COIN  
-🏦 Banca: ${user.bank} 888COIN  
+💵 Contanti: ${user.money} COIN  
+🏦 Banca: ${user.bank} COIN  
 `.trim();
 
   conn.sendMessage(m.chat, { text: messaggio }, { quoted: m });
