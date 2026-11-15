@@ -1,10 +1,10 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   let chat = global.db.data.chats[m.chat];
 
-  // MENU USO — GRAFICA PREMIUM 888
+  // MENU USO — GRAFICA PREMIUM
   if (!text) {
     return m.reply(
-`⚙️ *SET ADDIO 888*
+`⚙️ *SET ADDIO*
 
 📌 *Variabili disponibili*
 • @user — Menziona l’utente  
