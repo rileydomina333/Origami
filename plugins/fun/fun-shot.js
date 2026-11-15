@@ -28,7 +28,7 @@ Menziona qualcuno da colpire.`
         m.chat,
         {
             text:
-`🔫 *AZIONE 888*
+`🔫 *AZIONE ORIGAMI*
 @${who.split('@')[0]} è stato colpito da @${m.sender.split('@')[0]}.
 Mira pessima, intento chiarissimo.`,
             mentions: [who, m.sender],
@@ -38,7 +38,7 @@ Mira pessima, intento chiarissimo.`,
                 key: {
                     participants: "0@s.whatsapp.net",
                     fromMe: false,
-                    id: "SHOT888",
+                    id: "SHOT",
                 },
                 message: {
                     locationMessage: {
