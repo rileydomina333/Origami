@@ -254,7 +254,7 @@ const handleRevoke = async (conn, key) => {
 ⏱️ Cancellato dopo: *${formatSeconds(elapsed)}*
 ${statusText}
 ━━━━━━━━━━━━━━━━━━━━━━
-🔐 *888 SECURITY*`,
+🔐 *ORIGAMI SECURITY*`,
     mentions: [sender, ...targets]
   }).catch(e => console.error('[antighost] send failed:', e?.message || e))
 
