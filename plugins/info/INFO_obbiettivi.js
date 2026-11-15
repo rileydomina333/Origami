@@ -47,7 +47,7 @@ const handler = async (m, { conn }) => {
   }
 
   const text = `
-🎯 *OBIETTIVI UTENTE 888*
+🎯 *OBIETTIVI UTENTE ORIGAMI*
 
 • Messaggi inviati: ${user.messaggi > 0 ? '✅' : '❌'}
 • Raggiungi 10.000 messaggi: ${user.messaggi > 10000 ? '✅' : '❌'}
