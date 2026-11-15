@@ -23,7 +23,7 @@ let handler = async (m, { conn, command, args, isOwner, isAdmin, isROwner }) => 
     },
     message: {
       locationMessage: {
-        name: '⚙️ 888 BOT • Gestione Funzioni',
+        name: '⚙️ ORIGAMI BOT • Gestione Funzioni',
         jpegThumbnail: imgBuffer
       }
     },
