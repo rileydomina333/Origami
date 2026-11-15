@@ -49,9 +49,9 @@ async function handler(m, { conn }) {
   const tag = who.split('@')[0]
 
   const confirmText = `
-🏦 𝐁𝐀𝐍𝐂𝐀 𝟴𝟴𝟴 𝗕𝗢𝗧
+🏦 𝐁𝐀𝐍𝐂𝐀 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧
 
-💸 Stai per inviare: * 888COIN${count}*
+💸 Stai per inviare: * COIN${count}*
 🏷️ IBAN: ${ibanTarget}
 
 👤 Destinatario: @${tag}
@@ -154,7 +154,7 @@ handler.before = async function (m, { conn }) {
     delete confirmation[senderId]
 
     return conn.sendMessage(m.chat, {
-      text: `✔️ BONIFICO COMPLETATO\n\n💸 888COIN${data.count}\n👤 @${data.to.split('@')[0]}`,
+      text: `✔️ BONIFICO COMPLETATO\n\n💸 COIN${data.count}\n👤 @${data.to.split('@')[0]}`,
       mentions: [data.to]
     }, { quoted: m })
   }
