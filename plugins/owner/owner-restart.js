@@ -45,7 +45,7 @@ const handler = async (m, { conn, isOwner }) => {
 
     try {
         const { key } = await conn.sendMessage(m.chat, {
-            text: `🔄 *Riavvio in corso...*\n⏱️ Attendi qualche secondo.\n\n> 888 BOT restart`
+            text: `🔄 *Riavvio in corso...*\n⏱️ Attendi qualche secondo.\n\n> ORIGAMI BOT restart`
         }, { quoted: m });
 
         await delay(1000);
@@ -58,14 +58,14 @@ const handler = async (m, { conn, isOwner }) => {
         await delay(1000);
 
         await conn.sendMessage(m.chat, {
-            text: `⚙️ *Avvio procedura...*\n🔃 Riavvio diretto con \`node 888.js\`.\n\n> 888 BOT restart`,
+            text: `⚙️ *Avvio procedura...*\n🔃 Riavvio diretto con \`node 888.js\`.\n\n> ORIGAMI BOT restart`,
             edit: key
         });
 
         await delay(1000);
 
         await conn.sendMessage(m.chat, {
-            text: `✅ *Riavvio completato!*\n🟢 Bot online a breve.\n\n> 888 BOT restart`,
+            text: `✅ *Riavvio completato!*\n🟢 Bot online a breve.\n\n> ORIGAMI BOT restart`,
             edit: key
         });
 
