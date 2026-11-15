@@ -89,7 +89,7 @@ let handler = async (m, { conn, text }) => {
       `👤 Guerriero: @${userId}\n` +
       `🪐 Forma: ${chosen}\n` +
       `🕒 Tempo: ${timeTaken}s\n\n` +
-      `[888-BOT]`
+      `[ORIGAMI-BOT]`
 
     try {
       await conn.sendMessage(m.chat, {
