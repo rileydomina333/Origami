@@ -49,10 +49,10 @@ Sistema Paghetta 888
     m.chat,
     `
 💸 *Paghetta ricevuta*
-Hai guadagnato *${amount} 888COIN*.
+Hai guadagnato *${amount} COIN*.
 Sono stati depositati direttamente in banca.
 
-🏦 Saldo banca: *${user.bank} 888COIN*
+🏦 Saldo banca: *${user.bank} COIN*
 `.trim(),
     fkontak
   );
