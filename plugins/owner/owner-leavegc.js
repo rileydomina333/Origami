@@ -6,15 +6,15 @@ let handler = async (m, { conn, args, command }) => {
 
     const fake = {
     contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1,
-    title: '𝟴𝟴𝟴 𝗕𝗢𝗧',
-    body: '𝐞𝐧𝐭𝐫𝐚 𝐧𝐞𝐥 𝐜𝐚𝐧𝐚𝐥𝐞 𝐝𝐢 𝟴𝟴𝟴 𝗕𝗢𝗧!',         
+    title: ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧',
+    body: '𝐞𝐧𝐭𝐫𝐚 𝐧𝐞𝐥 𝐜𝐚𝐧𝐚𝐥𝐞 𝐝𝐢  𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧!',         
     previewType: 0, thumbnail: fs.readFileSync("./icone/benvenuto.png"),
-    sourceUrl: 'https://whatsapp.com/channel/0029Vb7ptH62UPBKFFgByc3C'
+    sourceUrl: 'https://whatsapp.com/channel/0029VbDnKcjC1FuEFBKDZF3R'
         }
       }
     };
 
-    const caption = `Me so cagato il cazzo di fare il bot di turno qua dentro! 💩`;
+    const caption = `Mi sono cagato il cazzo di fare il bot di turno qua dentro! 💩`;
 
   await conn.reply(m.chat, caption, null, fake);
 
