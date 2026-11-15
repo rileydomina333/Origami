@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
   const groupDescription = groupMetadata.desc || '📜 Nessuna descrizione presente'
 
   const text =
-    `⚖️ *Info Gruppo 888*\n` +
+    `⚖️ *Info Gruppo*\n` +
     `🟠 Nome: ${groupName}\n` +
     `🟡 Descrizione:\n${groupDescription}`
 
