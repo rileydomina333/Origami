@@ -7,6 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MENU_SECTIONS = [
   {
     title: 'MENU PRINCIPALE',
+    video: 'file_0000000041648210b30dd01aa465e960.png',
+    image: 'file_0000000041648210b30dd01aa465e960.png',
     rows: [
       { title: '⚙️ 𝐅𝐮𝐧𝐳𝐢𝐨𝐧𝐢', command: 'funzioni' },
       { title: '🛡️ 𝐌𝐨𝐝𝐞𝐫𝐚𝐭𝐨𝐫𝐢', command: 'mods' },
@@ -15,6 +17,8 @@ const MENU_SECTIONS = [
   },
   {
     title: 'GIOCHI, RPG E AUDIO',
+    video: 'file_0000000041648210b30dd01aa465e960.png',
+    image: 'file_0000000041648210b30dd01aa465e960.png',
     rows: [
       { title: '🎮 𝐆𝐢𝐨𝐜𝐡𝐢', command: 'giochi' },
       { title: '🎰 𝐑𝐏𝐆', command: 'rpg' },
@@ -23,6 +27,8 @@ const MENU_SECTIONS = [
   },
   {
     title: 'STATS E OWNER',
+    video: 'file_0000000041648210b30dd01aa465e960.png',
+    image: 'file_0000000041648210b30dd01aa465e960.png',
     rows: [
       { title: '📊 𝐒𝐭𝐚𝐭𝐬', command: 'modstats' },
       { title: '🔐 𝐎𝐰𝐧𝐞𝐫', command: 'owner' },
@@ -33,52 +39,25 @@ const MENU_SECTIONS = [
 const handler = async (m, { conn, usedPrefix = '.' }) => {
   const botName = global.db?.data?.nomedelbot || 'ORIGAMI BOT';
   const botVersion = global.db?.data?.version || '1.5';
-
-  const menuText = `⚡ *${botName}*
-*VERSIONE*: ${botVersion}
-
-🛡️ *Staff & Moderatori:* ${usedPrefix}mods
-
-📂 *Scorri il carosello e scegli una categoria.*`;
-
+  const menuText = `⚡ *${botName}*\n*VERSIONE*: ${botVersion}\n\n🛡️ *Staff & Moderatori:* ${usedPrefix}mods\n\n📂 *Scorri il carosello e scegli una categoria.*`;
   const mediaDir = path.join(__dirname, '..', '..', 'media');
-
-  // GIF ANIMATA ORIGAMI BOT
-  const gifPath = path.join(
-    mediaDir,
-    'file_00000000b91881f49cf027960acd8a28.gif'
-  );
-
-  if (!fs.existsSync(gifPath)) {
-    throw new Error('GIF ORIGAMI BOT non trovata nella cartella media!');
-  }
-
-  const gifBuffer = fs.readFileSync(gifPath);
-
+  const iconsDir = path.join(__dirname, '..', '..', 'icone');
   const cards = MENU_SECTIONS.map(section => ({
-    video: gifBuffer,
-    gifPlayback: true,
+    ...(fs.existsSync(path.join(mediaDir, section.video))
+      ? { video: fs.readFileSync(path.join(mediaDir, section.video)) }
+      : { image: fs.readFileSync(path.join(iconsDir, section.image)) }),
     title: section.title,
-    text: section.rows
-      .map(({ title, command }) =>
-        `${title}\n${usedPrefix}${command}`
-      )
-      .join('\n\n'),
+    text: section.rows.map(({ title, command }) => `${title}\n${usedPrefix}${command}`).join('\n\n'),
     footer: botName,
     buttons: section.rows.map(({ title, command }) => ({
-      buttonId: `${usedPrefix}${command}`,
-      buttonText: { displayText: title },
-      type: 1
+    buttonId: `${usedPrefix}${command}`,
+    buttonText: { displayText: title },
+    type: 1
     }))
   }));
-
-  const textFallback = `${menuText}
-
-${MENU_SECTIONS.map(({ title, rows }) =>
-  `📂 *${title}*\n${rows.map(({ title, command }) =>
-    `• ${title}: ${usedPrefix}${command}`
-  ).join('\n')}`
-).join('\n\n')}`;
+  const textFallback = `${menuText}\n\n${MENU_SECTIONS.map(({ title, rows }) =>
+    `📂 *${title}*\n${rows.map(({ title: rowTitle, command }) => `• ${rowTitle}: ${usedPrefix}${command}`).join('\n')}`
+  ).join('\n\n')}`;
 
   try {
     return await conn.sendMessage(m.chat, {
@@ -86,15 +65,9 @@ ${MENU_SECTIONS.map(({ title, rows }) =>
       footer: botName,
       cards
     }, { quoted: m });
-
   } catch (error) {
     console.warn(`[MENU] Carosello non inviato: ${error.message}`);
-
-    return conn.sendMessage(
-      m.chat,
-      { text: textFallback },
-      { quoted: m }
-    );
+    return conn.sendMessage(m.chat, { text: textFallback }, { quoted: m });
   }
 };
 
