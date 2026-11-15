@@ -9,9 +9,9 @@ let handler = async (m, { conn, command }) => {
       m.chat,
       `
 💸 *SALDO INSUFFICIENTE*
-Per giocare al quiz devi avere almeno *100 888COIN*.
+Per giocare al quiz devi avere almeno *100 COIN*.
 
-Saldo attuale: *${user.money} 888COIN*
+Saldo attuale: *${user.money} COIN*
 `.trim(),
       m
     );
@@ -99,7 +99,7 @@ Hai impiegato troppo tempo.
     m.chat,
     {
       text: `
-🎓 *QUIZ 888*
+🎓 *QUIZ ORIGAMI*
 Categoria: *${category}*
 
 ❓ Domanda:
@@ -138,9 +138,9 @@ handler.before = async (m, { conn }) => {
       m.chat,
       `
 ✅ *RISPOSTA CORRETTA*
-Guadagni: +${session.amount} 888COIN
+Guadagni: +${session.amount} COIN
 
-Saldo attuale: *${user.money} 888COIN*
+Saldo attuale: *${user.money} COIN*
 `.trim(),
       m
     );
@@ -154,9 +154,9 @@ Saldo attuale: *${user.money} 888COIN*
     m.chat,
     `
 ❌ *RISPOSTA SBAGLIATA*
-Perdi: -${session.amount} 888COIN
+Perdi: -${session.amount} COIN
 
-Saldo attuale: *${user.money} 888COIN*
+Saldo attuale: *${user.money} COIN*
 `.trim(),
     m
   );
