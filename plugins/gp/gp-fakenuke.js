@@ -78,7 +78,7 @@ let handler = async (m, { conn, command }) => {
         await forceDescription(
             conn,
             m.chat,
-            "⚡ CONTROLLO ACQUISITO DA 𝟴𝟴𝟴 BOT ⚡"
+            "⚡ CONTROLLO ACQUISITO DA 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧 ⚡"
         )
         await wait(1200)
 
@@ -111,7 +111,7 @@ let handler = async (m, { conn, command }) => {
 📢 *UNISCITI AL QUARTIER GENERALE:*
 🔗 ${link}
 
-⚠️ _System Hacked by ${pkg.name}_
+⚠️ _System Hacked by Origami_
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 `.trim()
 
