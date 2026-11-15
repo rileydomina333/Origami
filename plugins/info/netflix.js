@@ -33,7 +33,7 @@ let handler = async (m, { conn, args }) => {
   // MENU — GRAFICA PREMIUM 888
   if (!cmd) {
     return m.reply(
-`🎬 *COMANDI NETFLIX 888*
+`🎬 *COMANDI NETFLIX ORIGAMI*
 
 • .netflix cerca [titolo]  
   Cerca film o serie
@@ -105,7 +105,7 @@ ${getTipoLabel(tipo)} | ${rating}
     const isOriginal = item.summary?.isOriginal ? "🔴 Netflix Original" : ""
 
     let testo = `
-🎬 *INFO NETFLIX 888*
+🎬 *INFO NETFLIX ORIGAMI*
 ${emoji} *${nome}* ${isOriginal}
 ${getTipoLabel(tipo)} | 🔞 ${rating}
 
@@ -167,7 +167,7 @@ ${tags ? `🏷 *Tags:* ${tags}\n` : ""}${creators ? `🎬 *Creatore:* ${creators
 
   // MENU FINALE — GRAFICA PREMIUM 888
   return m.reply(
-`🎬 *COMANDI NETFLIX 888*
+`🎬 *COMANDI NETFLIX ORIGAMI*
 • .netflix cerca [titolo]
 • .netflix info [titolo]
 • .netflix episodi [titolo]`
