@@ -245,13 +245,13 @@ export async function sendImage(conn, m, buffer, caption = '', buttons = [], opt
 
   const base = {
     caption,
-    footer: opts.footer || ' 𝟴𝟴𝟴 𝗕𝗢𝗧 - Last.fm',
+    footer: opts.footer || ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧 - Last.fm',
     contextInfo: {
       ...(opts.externalAdReply ? { externalAdReply: opts.externalAdReply } : {}),
       forwardedNewsletterMessageInfo: {
         newsletterJid: '120363341274693350@newsletter',
         serverMessageId: -1,
-        newsletterName: '𝟴𝟴𝟴 𝗕𝗢𝗧'
+        newsletterName: ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧'
       }
     }
   };
