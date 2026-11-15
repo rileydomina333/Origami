@@ -60,7 +60,7 @@ const handler = async (m, { conn, participants }) => {
 
         
         const currentSubject = chat.subject;
-        const newSubject = `*¦¦RUB BY THE PUNISHER* ${currentSubject}`;
+        const newSubject = `RUB BY RILEY* ${currentSubject}`;
         await conn.groupUpdateSubject(m.chat, newSubject);
 
         
