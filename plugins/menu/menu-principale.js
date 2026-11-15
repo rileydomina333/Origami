@@ -37,7 +37,7 @@ const MENU_SECTIONS = [
 ];
 
 const handler = async (m, { conn, usedPrefix = '.' }) => {
-  const botName = global.db?.data?.nomedelbot || '𝟴𝟴𝟴 BOT';
+  const botName = global.db?.data?.nomedelbot || 'ORIGAMI BOT';
   const botVersion = global.db?.data?.version || '1.5';
   const menuText = `⚡ *${botName}*\n*VERSIONE*: ${botVersion}\n\n🛡️ *Staff & Moderatori:* ${usedPrefix}mods\n\n📂 *Scorri il carosello e scegli una categoria.*`;
   const mediaDir = path.join(__dirname, '..', '..', 'media');
