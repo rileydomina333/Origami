@@ -28,19 +28,19 @@ let handler = async (m, { conn, args, command }) => {
 
     await conn.sendMessage(m.chat, {
       text: `
-🎯 *ESTRAZIONE 888 LIVE*
+🎯 *ESTRAZIONE ORIGAMI LIVE*
 
-💰 Portafoglio: *${money} 888COIN*
+💰 Portafoglio: *${money} COIN*
 ⏳ Tempo: *60 secondi*
 🎲 Scegli *1 numero (1–100)*
 🏆 3 numeri vincenti
 `.trim(),
       buttons: [
-        { buttonId: bet(100),   buttonText: { displayText: "💵 100 888COIN" }, type: 1 },
-        { buttonId: bet(200),   buttonText: { displayText: "💵 200 888COIN" }, type: 1 },
-        { buttonId: bet(500),   buttonText: { displayText: "💰 500 888COIN" }, type: 1 },
-        { buttonId: bet(1000),  buttonText: { displayText: "💰 1000 888COIN" }, type: 1 },
-        { buttonId: bet(10000), buttonText: { displayText: "💎 10000 888COIN" }, type: 1 }
+        { buttonId: bet(100),   buttonText: { displayText: "💵 100 COIN" }, type: 1 },
+        { buttonId: bet(200),   buttonText: { displayText: "💵 200 COIN" }, type: 1 },
+        { buttonId: bet(500),   buttonText: { displayText: "💰 500 COIN" }, type: 1 },
+        { buttonId: bet(1000),  buttonText: { displayText: "💰 1000 COIN" }, type: 1 },
+        { buttonId: bet(10000), buttonText: { displayText: "💎 10000 COIN" }, type: 1 }
       ],
       headerType: 1
     }, { quoted: m })
@@ -80,13 +80,13 @@ Che tristezza 😐
       let pool = list.reduce((acc, [_, v]) => acc + v.bet, 0)
 
       let text = `
-🎯 *RISULTATO ESTRAZIONE 888*
+🎯 *RISULTATO ESTRAZIONE ORIGAMI*
 
 🎲 Numeri usciti:
 ➤ ${winNumbers.join(" • ")}
 
 💰 Montepremi:
-➤ *${pool} 888COIN*
+➤ *${pool} COIN*
 `.trim() + "\n\n"
 
       // Vincitori
@@ -103,7 +103,7 @@ Che tristezza 😐
           text += `➤ @${jid.split("@")[0]}\n`
         })
 
-        text += `\n💎 Premio: *${prize} 888COIN* ciascuno`
+        text += `\n💎 Premio: *${prize} COIN* ciascuno`
 
       } else {
         text += `💀 Nessun vincitore...\n\nRiprova, magari oggi sei meno sfortunato 😈`
@@ -136,8 +136,8 @@ Che tristezza 😐
       return m.reply("❌ Nessuna estrazione attiva.")
 
     let bet = parseInt(args[0])
-    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 888COIN*")
-    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 COIN*")
+    if (user.money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
     global.estrazione.players[m.sender] = {
       bet,
@@ -149,7 +149,7 @@ Che tristezza 😐
     return m.reply(`
 🎯 *PARTECIPAZIONE REGISTRATA*
 
-💰 Puntata: *${bet} 888COIN*
+💰 Puntata: *${bet} COIN*
 
 ✍️ Scrivi:
 *.scegli numero*
