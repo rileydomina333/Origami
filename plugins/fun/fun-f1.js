@@ -61,10 +61,10 @@ let handler = async (m, { conn, args }) => {
   const chat = m.chat
   const cmd = args[0]?.toLowerCase()
 
-  // MENU F1 — Grafica Premium 888
+  // MENU F1 — Grafica Premium ORIGAMI
   if (!cmd) {
     return m.reply(
-`🏎 *COMANDI F1 888*
+`🏎 *COMANDI F1 ORIGAMI*
 
 • .f1 → prossima gara  
 • .f1 calendario → stagione completa  
@@ -75,7 +75,7 @@ let handler = async (m, { conn, args }) => {
     )
   }
 
-  // PROSSIMA GARA — Grafica Premium 888
+  // PROSSIMA GARA — Grafica Premium Origami
   if (cmd === "prossima") {
     await m.reply("🏎💨 Ricerca prossima gara F1...")
 
@@ -269,7 +269,7 @@ ${sessioni}
 
   // MENU FINALE — Grafica Premium 888
   return m.reply(
-`🏎 *COMANDI F1 888*
+`🏎 *COMANDI F1 ORIGAMI*
 • .f1 → prossima gara  
 • .f1 calendario → stagione completa  
 • .f1 classifica → Mondiale Piloti  
