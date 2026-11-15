@@ -76,7 +76,7 @@ const handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { delete: msg.key });
 
   const messaggio = `
-👥 *INFO GRUPPO 888*
+👥 *INFO GRUPPO ORIGAMI*
 Informazioni sincronizzate
 
 📛 *Nome gruppo:* ${nome}
