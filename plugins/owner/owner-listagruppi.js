@@ -1,17 +1,17 @@
 import fetch from "node-fetch";
 
 let handler = async (m, { conn, usedPrefix }) => {
-  const botName = global.db.data?.nomedelbot || "𝟴𝟴𝟴 𝗕𝗢𝗧";
+  const botName = global.db.data?.nomedelbot || " 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧";
 
   const fake = {
     key: {
       participants: "0@s.whatsapp.net",
       fromMe: false,
-      id: "888ListaGruppi"
+      id: "ORIGAMIListaGruppi"
     },
     message: {
       locationMessage: {
-        name: "📦 LISTA GRUPPI 888",
+        name: "📦 LISTA GRUPPI ORIGAMI",
         jpegThumbnail: await (await fetch("https://qu.ax/JKCXP.jpg")).buffer()
       }
     },
