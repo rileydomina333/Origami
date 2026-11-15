@@ -13,7 +13,7 @@ let handler = async (m, { conn, command, text, args }) => {
     let boobs = `*🍒 𝐂𝐀𝐋𝐂𝐎𝐋𝐈𝐀𝐌𝐎 𝐋𝐄 𝐓𝐔𝐄 𝐁𝐎𝐎𝐁𝐒 🍒*\n
 ━━━━━━━━━━━━━━━━
 *@${number}* ha una *${size}*
-━━━━━━━━━━━━━━━━\n> *888 BOT*`.trim()
+━━━━━━━━━━━━━━━━\n> *ORIGAMI BOT*`.trim()
 
     m.reply(boobs, null, { mentions: conn.parseMention(boobs) })
 }
