@@ -63,7 +63,7 @@ Devi prima terminare quella attuale.`
 
   await conn.sendMessage(chatId, {
     text:
-`🎮 *Impiccato 888*
+`🎮 *Impiccato Origami*
 ━━━━━━━━━━━━━━━━━━
 ${ascii(0)}
 Parola da indovinare:
@@ -157,7 +157,7 @@ ${scoreArr}`,
     return
   }
 
-  // SCONFITTA — 888
+  // SCONFITTA — Origami
   if (game.errori >= 6) {
     if (!global.gameImpiccatoScore[m.chat][m.sender])
       global.gameImpiccatoScore[m.chat][m.sender] = 0
@@ -185,10 +185,10 @@ ${scoreArr}`,
     return
   }
 
-  // AGGIORNAMENTO PARTITA — 888
+  // AGGIORNAMENTO PARTITA — Origami
   await conn.sendMessage(m.chat, {
     text:
-`🎮 *Impiccato 888*
+`🎮 *Impiccato Origami*
 ━━━━━━━━━━━━━━━━━━
 ${ascii(game.errori)}
 Parola: *${parolaFormattata}*
