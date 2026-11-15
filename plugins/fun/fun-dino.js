@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
 
     await conn.sendMessage(from, {
         text: `🦖 *DINO RUNNER*\n\n🕹️ Salta con un tocco\n🏆 Batti il tuo record\n⚡ Sfida i tuoi amici\n\n_Buona fortuna!_ 🍀`,
-        footer: "888 Games",
+        footer: "Origami Games",
         headerType: 4,
         interactiveButtons: [
             {
