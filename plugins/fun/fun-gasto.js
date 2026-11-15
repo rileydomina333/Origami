@@ -207,23 +207,23 @@ let handler = async (m, { conn, text, usedPrefix = '.' }) => {
   if (!cmd || cmd === 'menu' || cmd === 'aiuto') {
     return send(
 `╭━━━━━━🌿━━━━━━╮
-   GIARDINO RPG
+   GIARDINO GASTO
 ╰━━━━━━🌿━━━━━━╯
 
 👋 Ciao ${tag}!
 
-Gestisci il tuo giardino e colleziona piante.
+Benvenuto al giardino di gasto,inizia per fare crescere il suo orto botanico di piante sballanti per andare in fattanza.
 
 📋 COMANDI
 
-🌱 ${usedPrefix}giardino inizia
-👤 ${usedPrefix}giardino profilo
-🪴 ${usedPrefix}giardino pianta <nome>
-💧 ${usedPrefix}giardino annaffia
-💩 ${usedPrefix}giardino concima
-🧺 ${usedPrefix}giardino raccogli
-🏪 ${usedPrefix}giardino negozio
-💰 ${usedPrefix}giardino compra <nome>
+🌱 ${usedPrefix}gasto inizia
+👤 ${usedPrefix}gasto profilo
+🪴 ${usedPrefix}gasto pianta <nome>
+💧 ${usedPrefix}gasto annaffia
+💩 ${usedPrefix}gasto concima
+🧺 ${usedPrefix}gasto raccogli
+🏪 ${usedPrefix}gasto negozio
+💰 ${usedPrefix}gasto compra <nome>
 
 💰 200$ iniziali
 💧 3 acqua
