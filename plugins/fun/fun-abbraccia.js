@@ -1,10 +1,3 @@
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const videoPath = path.resolve(__dirname, '../../media/anime/abbraccio.mp4')
-
 const tag = (jid = '') => '@' + String(jid).split('@')[0].split(':')[0]
 
 function buildContextMsg(title) {
@@ -23,26 +16,21 @@ function buildContextMsg(title) {
   }
 }
 
-function resolveTarget(m, text = '', botJid = '') {
+function resolveTarget(m, text = '') {
   const ctx = m.message?.extendedTextMessage?.contextInfo || {}
-
-  const numero = String(text || '').replace(/[^\d]/g, '')
-  if (numero.length >= 5) return `${numero}@s.whatsapp.net`
-
-  if (String(text || '').endsWith('@s.whatsapp.net') || String(text || '').endsWith('@c.us')) {
-    return String(text).trim()
-  }
 
   if (Array.isArray(m.mentionedJid) && m.mentionedJid.length) return m.mentionedJid[0]
   if (Array.isArray(ctx.mentionedJid) && ctx.mentionedJid.length) return ctx.mentionedJid[0]
 
-  const quotedSender = m.quoted?.sender || m.quoted?.participant || ctx.participant
-  if (quotedSender && quotedSender !== botJid) return quotedSender
+  if (m.quoted?.sender) return m.quoted.sender
+  if (m.quoted?.participant) return m.quoted.participant
+  if (ctx.participant) return ctx.participant
+
+  const numero = String(text || '').replace(/[^\d]/g, '')
+  if (numero.length >= 5) return `${numero}@s.whatsapp.net`
 
   return null
 }
-
-globalThis.abbracciRank = globalThis.abbracciRank || {};
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   const chat = m.chat || m.key?.remoteJid
@@ -55,20 +43,19 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     (m.key?.fromMe ? conn?.user?.id : '')
   )
 
-  const botJid = conn.user?.jid || conn.user?.id || ''
-  const target = resolveTarget(m, text, botJid)
-  const q = buildContextMsg('*🫂 𝐀𝐁𝐁𝐑𝐀𝐂𝐂𝐈𝐎*')
+  const target = resolveTarget(m, text)
+  const q = buildContextMsg('*🤗 𝐀𝐁𝐁𝐑𝐀𝐂𝐂𝐈𝐎*')
 
   if (!target) {
     return conn.sendMessage(chat, {
-      text: `*⚠️ 𝐃𝐞𝐯𝐢 𝐦𝐞𝐧𝐳𝐢𝐨𝐧𝐚𝐫𝐞 𝐪𝐮𝐚𝐥𝐜𝐮𝐧𝐨 𝐨 𝐫𝐢𝐬𝐩𝐨𝐧𝐝𝐞𝐫𝐞 𝐚 𝐮𝐧 𝐦𝐞𝐬𝐬𝐚𝐠𝐠𝐢𝐨 𝐩𝐞𝐫 𝐚𝐛𝐛𝐫𝐚𝐜𝐜𝐢𝐚𝐫𝐥𝐨 🫂*\n\n*𝐄𝐬𝐞𝐦𝐩𝐢𝐨:*\n*${usedPrefix}${command} @utente*`,
+      text: `*⚠️ 𝐃𝐞𝐯𝐢 𝐦𝐞𝐧𝐳𝐢𝐨𝐧𝐚𝐫𝐞 𝐪𝐮𝐚𝐥𝐜𝐮𝐧𝐨 𝐨 𝐫𝐢𝐬𝐩𝐨𝐧𝐝𝐞𝐫𝐞 𝐚 𝐮𝐧 𝐦𝐞𝐬𝐬𝐚𝐠𝐠𝐢𝐨 𝐩𝐞𝐫 𝐚𝐛𝐛𝐫𝐚𝐜𝐜𝐢𝐚𝐫𝐥𝐨 🤗*\n\n*𝐄𝐬𝐞𝐦𝐩𝐢𝐨:*\n*${usedPrefix}${command} @utente*`,
       contextInfo: global.rcanal?.contextInfo || {}
     }, { quoted: q })
   }
 
   if (target === sender) {
     return conn.sendMessage(chat, {
-      text: `*🫂 ${tag(sender)} 𝐬𝐢 è 𝐝𝐚𝐭𝐨 𝐮𝐧 𝐚𝐛𝐛𝐫𝐚𝐜𝐜𝐢𝐨 𝐝𝐚 𝐬𝐨𝐥𝐨... 🤗❤️*`,
+      text: `*🤗 ${tag(sender)} 𝐬𝐢 è 𝐚𝐛𝐛𝐫𝐚𝐜𝐜𝐢𝐚𝐭𝐨 𝐝𝐚 𝐬𝐨𝐥𝐨 🫂*`,
       contextInfo: {
         ...(global.rcanal?.contextInfo || {}),
         mentionedJid: [sender]
@@ -77,21 +64,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: q })
   }
 
-  if (!globalThis.abbracciRank[target]) globalThis.abbracciRank[target] = 0;
-  globalThis.abbracciRank[target] += 1;
-
-  const frasi = [
-    `${tag(sender)} stringe forte forte ${tag(target)}! 🤗💞`,
-    `Un abbraccio scalda-cuore da ${tag(sender)} per ${tag(target)}! ✨💖`,
-    `${tag(sender)} corre ad abbracciare ${tag(target)}! 🫂❤️`,
-    `Niente è meglio di un abbraccio tra ${tag(sender)} e ${tag(target)}! 🥰❣`
-  ];
-  const fraseRandom = frasi[Math.floor(Math.random() * frasi.length)];
-
   const senderNumero = String(sender).split('@')[0].split(':')[0]
 
-  const message = {
-    text: `*🫂 ${fraseRandom}*\n\n*🏆 Abbracci ricevuti da ${tag(target)}: ${globalThis.abbracciRank[target]} 🫂*`,
+  await conn.sendMessage(chat, {
+    text: `*🤗 ${tag(sender)} 𝐡𝐚 𝐚𝐛𝐛𝐫𝐚𝐜𝐜𝐢𝐚𝐭𝐨 ${tag(target)} 🫂*`,
     contextInfo: {
       ...(global.rcanal?.contextInfo || {}),
       mentionedJid: [sender, target]
@@ -100,20 +76,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     buttons: [
       {
         buttonId: `${usedPrefix}${command} ${senderNumero}`,
-        buttonText: { displayText: '🫂 𝐑𝐢𝐜𝐚𝐦𝐛𝐢𝐚 𝐥\'𝐚𝐛𝐛𝐫𝐚𝐳𝐳𝐨' },
+        buttonText: { displayText: '🫂 Ricambia l’abbraccio' },
         type: 1
       }
     ],
     headerType: 1
-  }
-  if (fs.existsSync(videoPath)) message.video = fs.readFileSync(videoPath)
-
-  await conn.sendMessage(chat, message, { quoted: q })
+  }, { quoted: q })
 }
 
-handler.help = ['abbraccia @user']
-handler.tags = ['giochi']
-handler.command = /^(abbraccia|hug)$/i
+handler.help = ['abbraccia @utente']
+handler.tags = ['fun']
+handler.command = ['abbraccia', 'abbraccio', 'hug']
 handler.group = true
 
 export default handler
