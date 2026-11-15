@@ -33,10 +33,10 @@ Non hai abbastanza soldi in banca.
 
     return conn.reply(m.chat, `
 💸 *Prelievo effettuato*
-Hai prelevato *${amount} 888COIN*.
+Hai prelevato *${amount} COIN*.
 
-💰 Contanti: *${users[who].money} 888COIN*
-🏦 Banca: *${users[who].bank} 888COIN*
+💰 Contanti: *${users[who].money} COIN*
+🏦 Banca: *${users[who].bank} COIN*
 `.trim(), m)
   }
 
@@ -85,7 +85,7 @@ Non hai abbastanza soldi in banca.
     {
       text: `
 💸 *Conferma prelievo*
-Vuoi prelevare *${prelievo} 888COIN*?
+Vuoi prelevare *${prelievo} COIN*?
 `.trim(),
       buttons: [
         { buttonId: ".confermaprelievo", buttonText: { displayText: "✅ SI" }, type: 1 },
