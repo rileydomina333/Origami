@@ -85,7 +85,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     `━━━━━━━━━━━━━━━━━━\n` +
     `🍀 *FORTUNA*\n┃ ${pickRandom(frasi.fortuna)}\n` +
     `━━━━━━━━━━━━━━━━━━\n` +
-    `✨ Generato da 𝟴𝟴𝟴 𝗕𝗢𝗧`
+    `✨ Generato da  𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧`
 
   await m.reply(result)
 }
