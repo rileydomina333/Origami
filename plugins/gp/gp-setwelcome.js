@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   if (!text) {
     return m.reply(
-`⚙️ *SET WELCOME 888*
+`⚙️ *SET WELCOME*
 
 📌 *Variabili disponibili*
 • @user — Menziona l’utente  
