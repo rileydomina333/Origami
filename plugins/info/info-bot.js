@@ -12,16 +12,13 @@ let handler = async (m, { conn }) => {
 `⚡ *888 BOT — Sistema Ufficiale*
 Benvenuto nel pannello principale.
 
-✨ *Pannello Informazioni 888* ✨
+✨ *Pannello Informazioni Origami* ✨
 
-👑 *Creatori:*
-• https://wa.me/393297014539
-• https://wa.me/79524931364
+👑 *Creatore:*
+• https://wa.me/639552686323
 
-🤖 *Nome Bot:* 888 BOT
-📦 *Versione:* 1.5
-🌐 *Sito:* https://888bot.netlify.app
-💻 *Repository:* https://github.com/artyompennini-a11y/888-BOT
+🤖 *Nome Bot:* ORIGAMI BOT
+📦 *Versione:* 1.00
 
 📡 *Stato:* Online
 👥 *Gruppi:* ${gruppi}
