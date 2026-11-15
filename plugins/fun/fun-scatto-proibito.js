@@ -324,7 +324,7 @@ async function sendBoard(conn, chat, g, extraText) {
 ━━━━━━━━━━━━━━━━━━━━
 🔍 Rivelazione: ${g.step}/${CONFIG.MAX_REVEALS}
 💰 Piatto: ${g.pot} 888COIN (${bettors} giocatori)
-🏆 Vincita ora: ~${winNow} 888COIN
+🏆 Vincita ora: ~${winNow} COIN
 ━━━━━━━━━━━━━━━━━━━━`
 
   if (extraText) cap += `\n\n${extraText}`
@@ -457,9 +457,9 @@ let handler = async (m, { conn }) => {
       return m.reply('📊 *Classifica SCATTO*\n\nNessun vincitore in questa sessione.')
     }
     const top = wl.sort((a, b) => b.win - a.win).slice(0, 10)
-    const lines = top.map((x, i) => `${i + 1}. @${shortJid(x.jid)} — +${x.win} 888COIN (${x.name})`)
+    const lines = top.map((x, i) => `${i + 1}. @${shortJid(x.jid)} — +${x.win} COIN (${x.name})`)
     return conn.sendMessage(chat, {
-      text: `📊 *TOP VINCITORI SCATTO*\n\n${lines.join('\n')}\n\n— 888 BOT —`,
+      text: `📊 *TOP VINCITORI SCATTO*\n\n${lines.join('\n')}\n\n— BOT —`,
       mentions: top.map((x) => x.jid)
     }, { quoted: m })
   }
@@ -476,7 +476,7 @@ let handler = async (m, { conn }) => {
 
     const starter = getUser(sender)
     if (starter.money < CONFIG.MIN_BET) {
-      return m.reply(`❌ Ti servono almeno ${CONFIG.MIN_BET} 888COIN per avviare una partita.`)
+      return m.reply(`❌ Ti servono almeno ${CONFIG.MIN_BET} COIN per avviare una partita.`)
     }
 
     const subject = SUBJECTS[Math.floor(Math.random() * SUBJECTS.length)]
@@ -510,16 +510,16 @@ let handler = async (m, { conn }) => {
   if (first === 'p') {
     const amount = parseInt(args[1], 10)
     if (!amount || amount < CONFIG.MIN_BET) {
-      return m.reply(`💵 Puntata minima: ${CONFIG.MIN_BET} 888COIN`)
+      return m.reply(`💵 Puntata minima: ${CONFIG.MIN_BET} COIN`)
     }
     const u = getUser(sender)
     if (u.money < amount) {
-      return m.reply('❌ Non hai abbastanza 888COIN.')
+      return m.reply('❌ Non hai abbastanza COIN.')
     }
     u.money -= amount
     game.pot += amount
     game.bets[sender] = (game.bets[sender] || 0) + amount
-    await sendBoard(conn, chat, game, `💵 Hai aggiunto ${amount} 888COIN al piatto.`)
+    await sendBoard(conn, chat, game, `💵 Hai aggiunto ${amount} COIN al piatto.`)
     return
   }
 
@@ -529,7 +529,7 @@ let handler = async (m, { conn }) => {
     }
     const u = getUser(sender)
     if (u.money < CONFIG.ZOOM_COST) {
-      return m.reply(`❌ Ti servono almeno ${CONFIG.ZOOM_COST} 888COIN per rivelare un pezzo.`)
+      return m.reply(`❌ Ti servono almeno ${CONFIG.ZOOM_COST} COIN per rivelare un pezzo.`)
     }
     u.money -= CONFIG.ZOOM_COST
     await doReveal(conn, chat)
@@ -554,9 +554,9 @@ let handler = async (m, { conn }) => {
   const u = getUser(sender)
   if (u.money >= CONFIG.PENALTY) {
     u.money -= CONFIG.PENALTY
-    await sendBoard(conn, chat, game, `❌ Tentativo sbagliato: "${guessText}". Penalità: -${CONFIG.PENALTY} 888COIN.`)
+    await sendBoard(conn, chat, game, `❌ Tentativo sbagliato: "${guessText}". Penalità: -${CONFIG.PENALTY} COIN.`)
   } else {
-    await sendBoard(conn, chat, game, `❌ Tentativo sbagliato: "${guessText}". Non hai abbastanza 888COIN per la penalità.`)
+    await sendBoard(conn, chat, game, `❌ Tentativo sbagliato: "${guessText}". Non hai abbastanza COIN per la penalità.`)
   }
 }
 
