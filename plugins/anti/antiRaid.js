@@ -166,14 +166,14 @@ async function notifyRejected(conn, chat, refused, cfg) {
   try {
     await conn.sendMessage(chat, {
       text:
-`🚫 *888 ANTI-RICHIESTA*
+`🚫 *ORIGAMI HA MESSO IL PRESERVATIVO*
 ━━━━━━━━━━━━━━━━━━━━━
 ⚠️ Richieste di accesso rifiutate in automatico.
 👥 Utenti bloccati: *${refused.length}*
 
 ${lines}${extra}
 ━━━━━━━━━━━━━━━━━━━━━
-🔐 *888 SECURITY*`,
+🔐 *ORIGAMI SECURITY*`,
       contextInfo: { mentionedJid: refused.map(r => r.jid) },
       mentions: refused.map(r => r.jid)
     })
@@ -314,7 +314,7 @@ export async function onParticipantUpdate(conn, update) {
     if (!cfg.silent) {
       await conn.sendMessage(chat, {
         text:
-`🛡️ *888 ANTI-RAID ATTIVATO*
+`🛡️ *ORIGAMI HA MESSO IL PRESERVATIVO*
 ━━━━━━━━━━━━━━━━━━━━━
 ⚠️ Rilevato un flusso anomalo di ingressi.
 👥 Ingressi sospetti: *${toRemove.length}*
@@ -322,7 +322,7 @@ export async function onParticipantUpdate(conn, update) {
 🚫 Azione: *${action.toUpperCase()}*
 ━━━━━━━━━━━━━━━━━━━━━
 Gli account sospetti sono stati rimossi.
-🔐 *888 SECURITY*`,
+🔐 *ORIGAMI SECURITY*`,
         contextInfo: { mentionedJid: toRemove }
       }).catch(() => {})
     }
