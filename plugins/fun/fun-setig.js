@@ -49,13 +49,13 @@ Usa ''.rimuoviig'' per rimuoverlo
     contextInfo: {
       mentionedJid: [m.sender],
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363341274693350@newsletter',
+        newsletterJid: '',
         serverMessageId: '',
-        newsletterName: global.nomebot || '𝟴𝟴𝟴 𝗕𝗢𝗧'
+        newsletterName: global.nomebot || ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧'
       },
       externalAdReply: {
         title: 'Instagram configurato ✅',
-        body: 'Vai al canale 𝟴𝟴𝟴 𝗕𝗢𝗧',
+        body: 'Vai al canale  𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧',
         mediaType: 1,
         thumbnail: thumb,
         renderLargerThumbnail: false,
