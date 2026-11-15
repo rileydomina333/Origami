@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
     return m.reply('❌ *LINK NON VALIDO*\nIl link inserito non è un link TikTok riconosciuto.')
   }
 
-  await m.reply('⏳ *DOWNLOAD IN CORSO*\nSto scaricando il video... Attendere qualche secondo.\n\n🔰 888 BOT Downloader')
+  await m.reply('⏳ *DOWNLOAD IN CORSO*\nSto scaricando il video... Attendere qualche secondo.\n\n🔰 ORIGAMI BOT Downloader')
 
   try {
     const api = `https://www.tikwm.com/api/?url=${encodeURIComponent(text)}`
@@ -26,7 +26,7 @@ let handler = async (m, { conn, text }) => {
       {
         video: { url: json.data.play },
         mimetype: 'video/mp4',
-        caption: `🎬 *VIDEO SCARICATO*\n🎵 Titolo:\n➜ ${json.data.title || 'TikTok Video'}\n\n🔰 888 BOT Downloader`
+        caption: `🎬 *VIDEO SCARICATO*\n🎵 Titolo:\n➜ ${json.data.title || 'TikTok Video'}\n\n🔰 ORIGAMI BOT Downloader`
       },
       { quoted: m }
     )
