@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
   if (now < user.workCooldown) {
     let time = msToTime(user.workCooldown - now)
     return m.reply(`
-⏳ *COOLDOWN LAVORO 888*
+⏳ *COOLDOWN LAVORO ORIGAMI*
 Hai già lavorato recentemente.
 Puoi lavorare di nuovo tra *${time}*.
 `.trim())
@@ -54,7 +54,7 @@ Puoi lavorare di nuovo tra *${time}*.
 
   // RISULTATO — 888
   let text = `
-💼 *LAVORO 888*
+💼 *LAVORO ORIGAMI*
 ${evento}
 `.trim()
 
@@ -62,18 +62,18 @@ ${evento}
     user.money += amount
     text += `
 
-✨ Guadagno: *+${amount} 888COIN*`
+✨ Guadagno: *+${amount} COIN*`
   } else {
     user.money -= amount
     if (user.money < 0) user.money = 0
     text += `
 
-💀 Perdita: *-${amount} 888COIN*`
+💀 Perdita: *-${amount} COIN*`
   }
 
   text += `
 
-💼 Saldo attuale: *${user.money} 888COIN*`
+💼 Saldo attuale: *${user.money} COIN*`
 
   return conn.sendMessage(m.chat, { text }, { quoted: m })
 }
