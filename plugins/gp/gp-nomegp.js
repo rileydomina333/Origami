@@ -4,7 +4,7 @@ const handler = async (m, { conn, args }) => {
   if (!args[0]) {
     return conn.reply(
       m.chat,
-      `⚠️ Devi indicare il nuovo nome del gruppo.\nEsempio:\n.nomegp Elite Squad 888`,
+      `⚠️ Devi indicare il nuovo nome del gruppo.\nEsempio:\n.nomegp Origami domina`,
       m
     )
   }
