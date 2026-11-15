@@ -23,14 +23,14 @@ let handler = async (m, { conn }) => {
       vcard: `BEGIN:VCARD\n`
         + `VERSION:3.0\n`
         + `FN:${displayName}\n`
-        + `ORG:𝟴𝟴𝟴 𝗕𝗢𝗧;\n`
+        + `ORG: 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧;\n`
         + `TEL;type=CELL;type=VOICE;waid=${cleanNumber}:+${cleanNumber}\n`
         + `END:VCARD`
     };
   });
 
   // Messaggio citato personalizzato (Quoted Message)
-  const botName = global.db?.data?.nomedelbot || 'Ꮻ𝐖𝐍𝚵𝐑   𝟴𝟴𝟴 𝗕𝗢𝗧';
+  const botName = global.db?.data?.nomedelbot || 'Ꮻ𝐖𝐍𝚵𝐑 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧';
   const icon = await loadBalIcon();
   
   const prova = {
