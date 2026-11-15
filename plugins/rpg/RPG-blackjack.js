@@ -456,7 +456,7 @@ const renderTable = async ({
   }
 
   if (status) await printText(base, 'small', 26, TABLE_H - 58, status, { maxChars: 42 })
-  await printText(base, 'small', 874, TABLE_H - 58, `SALDO: ${coins} 888COIN`, { align: 'right', maxChars: 28 })
+  await printText(base, 'small', 874, TABLE_H - 58, `SALDO: ${coins} COIN`, { align: 'right', maxChars: 28 })
   if (hint) await printText(base, 'small', TABLE_W / 2, TABLE_H - 34, hint, { align: 'center', color: rgb(206, 220, 206), maxChars: 74 })
 
   return base.getBufferAsync(Jimp.MIME_PNG)
@@ -590,7 +590,7 @@ const sendTable = async (conn, chat, game, { caption, buttons = null, quoted = n
 
   if (buttons?.length) {
     payload.buttons = buttons
-    payload.footer = '𝟴𝟴𝟴 𝗕𝗢𝗧'
+    payload.footer = ' 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧'
     payload.headerType = 4
   }
 
@@ -598,8 +598,8 @@ const sendTable = async (conn, chat, game, { caption, buttons = null, quoted = n
 }
 
 const turnCaption = (game, jid) => [
-  '🃏 *BLACKJACK 888*',
-  `👤 @${jid.split('@')[0]} · Puntata: *${game.bet} 888COIN*`,
+  '🃏 *BLACKJACK ORIGAMI*',
+  `👤 @${jid.split('@')[0]} · Puntata: *${game.bet} COIN*`,
   '',
   `🂠 *BANCO:* ${cardLabel(game.dealerCards[0])} + 🂠 coperta`,
   `🧑 *TU:* ${handLabel(game.playerCards)} → *${handValue(game.playerCards)}*`,
@@ -696,15 +696,15 @@ const finishRound = async (conn, chat, game, { bust = false, natural = false, ti
   games.delete(chat)
 
   const caption = [
-    '🃏 *BLACKJACK 888* — Risultato',
-    `👤 @${game.player.split('@')[0]} · Puntata: *${game.bet} 888COIN*`,
+    '🃏 *BLACKJACK ORIGAMI* — Risultato',
+    `👤 @${game.player.split('@')[0]} · Puntata: *${game.bet} COIN*`,
     '',
     `🂠 *BANCO:* ${handLabel(game.dealerCards)} → *${dealerValue}*`,
     `🧑 *TU:* ${handLabel(game.playerCards)} → *${playerValue}*`,
     '',
     esito,
     delta === 0 ? '💼 Saldo invariato' : `${delta > 0 ? '📈 +' : '📉 '}${delta} 888COIN`,
-    `💼 Saldo: *${coins} 888COIN*`
+    `💼 Saldo: *${coins} COIN*`
   ].join('\n')
 
   return sendTable(conn, chat, game, {
@@ -788,7 +788,7 @@ const startGame = async (conn, m, args = []) => {
     caption: turnCaption(game, m.sender),
     buttons: actionButtons(),
     quoted: m,
-    status: `Puntata: ${bet} 888COIN · tocca a te`,
+    status: `Puntata: ${bet} COIN · tocca a te`,
     hint: 'Usa i bottoni oppure rispondi .carta / .stai'
   })
 }
