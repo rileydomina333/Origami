@@ -8,7 +8,7 @@ const MENU_SECTIONS = [
   {
     title: 'MENU PRINCIPALE',
     video: 'file_00000000b91881f49cf027960acd8a28.gif',
-    image: 'settings.png',
+    image: 'file_00000000b91881f49cf027960acd8a28.gif',
     rows: [
       { title: '⚙️ 𝐅𝐮𝐧𝐳𝐢𝐨𝐧𝐢', command: 'funzioni' },
       { title: '🛡️ 𝐌𝐨𝐝𝐞𝐫𝐚𝐭𝐨𝐫𝐢', command: 'mods' },
@@ -18,7 +18,7 @@ const MENU_SECTIONS = [
   {
     title: 'GIOCHI, RPG E AUDIO',
     video: 'file_00000000b91881f49cf027960acd8a28.gif',
-    image: 'pokemon_battle.png',
+    image: 'file_00000000b91881f49cf027960acd8a28.gif',
     rows: [
       { title: '🎮 𝐆𝐢𝐨𝐜𝐡𝐢', command: 'giochi' },
       { title: '🎰 𝐑𝐏𝐆', command: 'rpg' },
@@ -28,7 +28,7 @@ const MENU_SECTIONS = [
   {
     title: 'STATS E OWNER',
     video: 'file_00000000b91881f49cf027960acd8a28.gif',
-    image: 'admin.png',
+    image: 'file_00000000b91881f49cf027960acd8a28.gif',
     rows: [
       { title: '📊 𝐒𝐭𝐚𝐭𝐬', command: 'modstats' },
       { title: '🔐 𝐎𝐰𝐧𝐞𝐫', command: 'owner' },
