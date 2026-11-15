@@ -9,8 +9,8 @@ let handler = async (m, { conn, command, text }) => {
 
   let finalPhrase =
     width >= 30
-      ? "⚠️ *Attenzione!* Potrebbe esserci uno sbirro tra noi.\n> 888 BOT"
-      : "Mh, direi che possiamo stare tranquilli.\n> 888 BOT"
+      ? "⚠️ *Attenzione!* Potrebbe esserci uno sbirro tra noi.\n> ORIGAMI BOT"
+      : "Mh, direi che possiamo stare tranquilli.\n> ORIGAMI BOT"
 
   let message = 
 `🔍 *Analisi in corso...*
