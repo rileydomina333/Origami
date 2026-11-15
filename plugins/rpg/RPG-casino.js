@@ -2,7 +2,7 @@ let handler = async (m, { conn }) => {
 
   await conn.sendMessage(m.chat, {
     text: `
-🎰 *CASINÒ 888 BOT*
+🎰 *CASINÒ ORIGAMI BOT*
 
 💸 Benvenuto nel paradiso della rovina economica.
 Scegli il tuo gioco e tenta la fortuna.
@@ -24,7 +24,7 @@ Scegli il tuo gioco e tenta la fortuna.
 ━━━━━━━━━━━━━━━━━━━━━━
 👇 Seleziona il gioco:
 `.trim(),
-    footer: "𝟴𝟴𝟴 𝗕𝗢𝗧 — CASINÒ",
+    footer: " 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧 — CASINÒ",
         buttons: [
       { buttonId: ".roulette",         buttonText: { displayText: "🎯 𝐑𝐨𝐮𝐥𝐞𝐭𝐭𝐞" }, type: 1 },
       { buttonId: ".dadi",             buttonText: { displayText: "🎲 𝐃𝐚𝐝𝐢" }, type: 1 },
