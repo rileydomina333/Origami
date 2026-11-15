@@ -130,7 +130,7 @@ let handler = async (m, { text, usedPrefix, command, __dirname, conn }) => {
 
   if (!text || args.length === 0) {
     return m.reply(`
-📁 *FILE MANAGER 888*
+📁 *FILE MANAGER ORIGAMI*
 Richiesta parametri
 
 🔍 *Utilizzo*
@@ -184,7 +184,7 @@ ${righe}
 
 Tocca quello giusto qui sotto.
 `.trim(),
-      '888 File Manager',
+      'Origami File Manager',
       null,
       buttons,
       m
@@ -196,12 +196,12 @@ Tocca quello giusto qui sotto.
     return await conn.sendButton(
       m.chat,
       `
-📁 *FILE RILEVATO 888*
+📁 *FILE RILEVATO ORIGAMI*
 File: ${filename}${cartella ? '\nCartella: *' + cartella + '*' : ''}
 
 Scegli la modalità di output:
 `.trim(),
-      '888 File Manager',
+      'Origami File Manager',
       null,
       [
         [`📄 Come script`, `${usedPrefix + command} ${text} script`],
@@ -252,7 +252,7 @@ Scegli la modalità di output:
       })
       if (error) {
         await m.reply(`
-⛔ *SINTASSI CORROTTA 888*
+⛔ *SINTASSI CORROTTA ORIGAMI*
 Modulo: ${filename}
 
 💥 Errore:
@@ -263,7 +263,7 @@ ${error}
 
   } catch (err) {
     await m.reply(`
-❌ *ERRORE PROCESSO 888*
+❌ *ERRORE PROCESSO ORIGAMI*
 File: ${filename}
 
 💥 Eccezione:
