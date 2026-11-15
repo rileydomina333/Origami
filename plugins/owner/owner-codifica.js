@@ -8,21 +8,21 @@ import { tmpdir } from 'os'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const encodePlugin = (code) => {
-  const KEY = '888neverdies'
+  const KEY = 'ORIGAMIneverdies'
   const keyBytes = Buffer.from(KEY, 'utf8')
   const buf = Buffer.from(code, 'utf8')
   const xored = Buffer.from(buf.map((b, i) => b ^ keyBytes[i % keyBytes.length]))
   const encoded = xored.toString('base64')
 
   return (
-    `//Codificato by 888 STAFF\n` +
+    `//Codificato by Origami STAFF\n` +
     `import{writeFileSync,unlinkSync}from'fs';\n` +
     `import{tmpdir}from'os';\n` +
     `import{join}from'path';\n` +
-    `const _k=Buffer.from('888neverdies','utf8');\n` +
+    `const _k=Buffer.from('ORIGAMIneverdies','utf8');\n` +
     `const _s=Buffer.from('${encoded}','base64');\n` +
     `const _d=Buffer.from(_s.map((b,i)=>b^_k[i%_k.length])).toString('utf8');\n` +
-    `const _t=join(tmpdir(),'_888_'+Date.now()+'.mjs');\n` +
+    `const _t=join(tmpdir(),'_ORIGAMJ_'+Date.now()+'.mjs');\n` +
     `writeFileSync(_t,_d);\n` +
     `const _m=await import(_t);\n` +
     `unlinkSync(_t);\n` +
