@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
 
   await conn.sendMessage(m.chat, {
     video: { url: videoPath },
-    caption: '🎉 𝐄𝐜𝐜𝐨 𝐚 𝐯𝐨𝐢 𝐥𝐚 𝐦𝐚𝐬𝐜𝐨𝐭𝐭𝐞 𝐝𝐢 𝟴𝟴𝟴 𝗕𝗢𝗧!'
+    caption: '🎉 𝐄𝐜𝐜𝐨 𝐚 𝐯𝐨𝐢 𝐥𝐚 𝐦𝐚𝐬𝐜𝐨𝐭𝐭𝐞 𝐝𝐢 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧!'
   }, { quoted: m });
 };
 
