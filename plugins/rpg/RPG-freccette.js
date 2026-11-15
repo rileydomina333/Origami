@@ -15,18 +15,18 @@ let handler = async (m, { conn, args, command }) => {
 
     return conn.sendMessage(m.chat, {
       text: `
-🎯 *FRECCETTE 888*
-💰 Portafoglio: *${money} 888COIN*
+🎯 *FRECCETTE ORIGAMI*
+💰 Portafoglio: *${money} COIN*
 
 Colpisci il bersaglio:
 più punti fai, più vinci.
 `.trim(),
       buttons: [
-        { buttonId: bet(100),   buttonText: { displayText: "💵 100 888COIN" }, type: 1 },
-        { buttonId: bet(200),   buttonText: { displayText: "💵 200 888COIN" }, type: 1 },
-        { buttonId: bet(500),   buttonText: { displayText: "💰 500 888COIN" }, type: 1 },
-        { buttonId: bet(1000),  buttonText: { displayText: "💰 1000 888COIN" }, type: 1 },
-        { buttonId: bet(10000), buttonText: { displayText: "💎 10000 888COIN" }, type: 1 }
+        { buttonId: bet(100),   buttonText: { displayText: "💵 100 COIN" }, type: 1 },
+        { buttonId: bet(200),   buttonText: { displayText: "💵 200 COIN" }, type: 1 },
+        { buttonId: bet(500),   buttonText: { displayText: "💰 500 COIN" }, type: 1 },
+        { buttonId: bet(1000),  buttonText: { displayText: "💰 1000 COIN" }, type: 1 },
+        { buttonId: bet(10000), buttonText: { displayText: "💎 10000 COIN" }, type: 1 }
       ],
       headerType: 1
     }, { quoted: m })
@@ -40,8 +40,8 @@ più punti fai, più vinci.
     let bet = parseInt(args[0])
     let money = user.money || 0
 
-    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 888COIN*")
-    if (money < bet) return m.reply(`💸 Ti servono almeno *${bet} 888COIN*`)
+    if (!bet || bet < 50) return m.reply("💸 Puntata minima: *50 COIN*")
+    if (money < bet) return m.reply(`💸 Ti servono almeno *${bet} COIN*`)
 
     user.money -= bet
 
@@ -52,18 +52,18 @@ più punti fai, più vinci.
     let win = 0
 
     let text = `
-🎯 *FRECCETTA 888*
+🎯 *FRECCETTA ORIGAMI*
 Punteggio: *${score}*
 `.trim() + "\n\n"
 
     if (score >= 50) {
       win = bet * 2
-      text += `🎯 *BULLSEYE!*\n💰 Vinci *${win} 888COIN*`
+      text += `🎯 *BULLSEYE!*\n💰 Vinci *${win} COIN*`
     } else if (score >= 30) {
       win = Math.floor(bet * 1.5)
-      text += `🙂 *Buon tiro*\n💰 Vinci *${win} 888COIN*`
+      text += `🙂 *Buon tiro*\n💰 Vinci *${win} COIN*`
     } else {
-      text += `💀 *Tiro pessimo*\nHai perso *${bet} 888COIN*`
+      text += `💀 *Tiro pessimo*\nHai perso *${bet} COIN*`
     }
 
     user.money += win
