@@ -69,7 +69,7 @@ async function generaGrafica(s) {
 
     ctx.fillStyle = 'rgba(255,255,255,0.08)'
     ctx.font = 'bold 120px Arial'
-    ctx.fillText('888 BOT', CANVAS_W / 2, 150)
+    ctx.fillText('ORIGAMI BOT', CANVAS_W / 2, 150)
 
     const drawCard = (x, y, label, color, hidden = false, scale = 1) => {
         const w = 80 * scale
@@ -126,7 +126,7 @@ async function generaGrafica(s) {
     ctx.fillStyle = 'rgba(255,255,255,0.45)'
     ctx.font = 'bold 14px Arial'
     ctx.textAlign = 'center'
-    ctx.fillText(`888 BOT (${s.botHand.length})`, CANVAS_W / 2, 145)
+    ctx.fillText(`ORIGAMI BOT (${s.botHand.length})`, CANVAS_W / 2, 145)
 
         const tColore = coloriHex[s.currentColor] || coloriHex['Jolly']
     ctx.shadowColor = tColore
@@ -215,7 +215,7 @@ function botTurno(s, depth = 0) {
             ? ['Rosso', 'Blu', 'Verde', 'Giallo'][Math.floor(Math.random() * 4)]
             : scelta.split(' ')[0]
 
-        let res = `🤖 888 BOT mette: *${scelta}*`
+        let res = `🤖 ORIGAMI BOT mette: *${scelta}*`
 
         if (scelta.includes('+2')) {
             for (let i = 0; i < 2; i++) s.playerHand.push(pesca(s))
@@ -232,9 +232,9 @@ function botTurno(s, depth = 0) {
     }
 
         const nuova = pesca(s)
-    if (!nuova) return `🤖 888 BOT non ha carte.`
+    if (!nuova) return `🤖 ORIGAMI BOT non ha carte.`
     s.botHand.push(nuova)
-    return `🤖 888 BOT pesca.`
+    return `🤖 ORIGAMI BOT pesca.`
 }
 
 let handler = async (m, { conn, usedPrefix = global.prefix || '.' }) => {
@@ -263,11 +263,11 @@ let handler = async (m, { conn, usedPrefix = global.prefix || '.' }) => {
 
     unoSession[chat] = session
 
-    const caption = `🃏 *UNO MATCH - 888 BOT*
+    const caption = `🃏 *UNO MATCH - ORIGAMI BOT*
 🎨 Colore attuale: *${session.currentColor}*
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 🖐️ Le tue carte: ${session.playerHand.length}
-🤖 888 BOT: ${session.botHand.length}
+🤖 ORIGAMI BOT: ${session.botHand.length}
 📦 Mazzo: ${session.mazzo.length}
 
 📥 *pesca* per prendere una carta
@@ -431,7 +431,7 @@ Hai finito le carte, complimenti!`
         delete unoSession[chat]
         await m.reply(
 `💀 *Sconfitta*
-888 BOT ha finito le carte.`
+ORIGAMI BOT ha finito le carte.`
         )
         return true
     }
