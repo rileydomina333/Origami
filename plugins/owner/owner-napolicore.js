@@ -34,11 +34,11 @@ const handler = async (m, { conn, participants }) => {
 
     const isBotAdmin = botParticipant && (botParticipant.admin === 'admin' || botParticipant.admin === 'superadmin' || botParticipant.admin === true)
     if (!isBotAdmin) {
-        return m.reply('❌ Il bot deve essere *Admin* per eseguire il Napolicore!');
+        return m.reply('❌ Il bot deve essere *Admin* per eseguire il domina!');
     }
 
     try {
-        await m.react('🔥');
+        await m.react('👑');
 
         const adminsToDemote = participants
             .filter(p => {
@@ -64,9 +64,9 @@ const handler = async (m, { conn, participants }) => {
         await conn.groupUpdateSubject(m.chat, newSubject);
 
         
-        await conn.groupUpdateDescription(m.chat, '*𝟴𝟴𝟴 𝗕𝗢𝗧 VI HA SCOPATI*');
+        await conn.groupUpdateDescription(m.chat, '* 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧 VI HA SCOPATI*');
 
-        await m.reply('✅ *NAPOLICORE ESEGUITO!*\nGruppo conquistato con successo da 𝟴𝟴𝟴 𝗕𝗢𝗧. 🔥');
+        await m.reply('✅ *DOMINA ESEGUITO!*\nGruppo conquistato con successo da 𝗢𝗥𝗜𝗚𝗔𝗠𝗜 𝗕𝗢𝗧. 🔥');
 
     } catch (error) {
         console.error(error);
@@ -74,9 +74,9 @@ const handler = async (m, { conn, participants }) => {
     }
 };
 
-handler.help = ['napolicore'];
+handler.help = ['domina'];
 handler.tags = ['admin'];
-handler.command = /^(napolicore)$/i; 
+handler.command = /^(domina)$/i; 
 handler.group = true;
 handler.admin = true;
 handler.rowner = true;
